@@ -1,38 +1,41 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="uk" class="scroll-smooth">
   <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Travel for people — планування подорожей за бюджетом</title>
     <meta
       name="description"
       content="Travel for people — плануй подорож за своїм бюджетом: транспорт, житло та напрямки в одному місці."
-   >
+    />
 
-    <meta property="og:type" content="website">
-    <meta property="og:locale" content="uk_UA">
-    <meta property="og:site_name" content="Travel for people">
-    <meta property="og:title" content="Travel for people — планування подорожей за бюджетом">
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="uk_UA" />
+    <meta property="og:site_name" content="Travel for people" />
+    <meta
+      property="og:title"
+      content="Travel for people — планування подорожей за бюджетом"
+    />
     <meta
       property="og:description"
       content="Плануй подорож за своїм бюджетом: транспорт, житло та напрямки в одному місці."
-   >
+    />
 
-    <link rel="icon" type="image/svg+xml" href="assets/images/logo.svg">
+    <link rel="icon" type="image/svg+xml" href="assets/images/logo.svg" />
 
     <!-- Google Fonts: Poppins (заголовки) + Inter (основний текст) -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap"
       rel="stylesheet"
-   >
+    />
 
     <!-- Іконковий шрифт Font Awesome 6 -->
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
-   >
+    />
 
     <!-- Tailwind CSS (Play CDN) -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -69,9 +72,11 @@
     </script>
 
     <!-- Власні стилі: лише те, що недоцільно робити утилітами -->
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style.css" />
   </head>
-  <body class="bg-cream font-sans text-base leading-normal text-ink antialiased">
+  <body
+    class="bg-cream font-sans text-base leading-normal text-ink antialiased"
+  >
     <!-- Посилання для клавіатурної навігації: дозволяє пропустити шапку -->
     <a
       href="#main"
@@ -95,8 +100,8 @@
             width="34"
             height="34"
             class="h-8 w-8 shrink-0 object-contain lg:h-[34px] lg:w-[34px]"
-         >
-          <span class="whitespace-nowrap">Travel for people</span>
+          />
+          <span class="whitespace-nowrap">Travel for guys</span>
         </a>
 
         <!-- Десктопна навігація: прихована на мобільних, видима з md -->
@@ -149,7 +154,10 @@
           >
             <span class="sr-only lg:not-sr-only">Планувати подорож</span>
             <i class="fa-solid fa-route lg:hidden" aria-hidden="true"></i>
-            <i class="fa-solid fa-arrow-right hidden lg:inline" aria-hidden="true"></i>
+            <i
+              class="fa-solid fa-arrow-right hidden lg:inline"
+              aria-hidden="true"
+            ></i>
           </a>
 
           <!-- Гамбургер: видимий лише на мобільних -->
@@ -161,7 +169,11 @@
             aria-label="Відкрити меню"
             class="inline-flex h-11 w-11 items-center justify-center rounded-full text-brand-strong transition-colors duration-200 hover:bg-cream focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-offset-2 focus-visible:outline-focus md:hidden"
           >
-            <i class="fa-solid fa-bars text-xl" aria-hidden="true" data-menu-icon></i>
+            <i
+              class="fa-solid fa-bars text-xl"
+              aria-hidden="true"
+              data-menu-icon
+            ></i>
           </button>
         </div>
       </div>
@@ -237,7 +249,11 @@
 
     <main id="main">
       <!-- ===================== HERO ===================== -->
-      <section id="top" aria-labelledby="hero-title" class="relative pt-8 md:pt-12">
+      <section
+        id="top"
+        aria-labelledby="hero-title"
+        class="relative pt-8 md:pt-12"
+      >
         <!-- mobile/tablet: текст → ілюстрація → форма; lg: дві колонки (текст | ілюстрація) -->
         <div
           class="mx-auto grid max-w-container grid-cols-1 items-center gap-8 px-4 pt-6 sm:px-6 md:pt-10 lg:grid-cols-2 lg:gap-10"
@@ -280,14 +296,16 @@
             height="294"
             fetchpriority="high"
             class="h-56 w-full rounded-panel object-cover object-right sm:h-72 lg:h-[440px]"
-         >
+          />
         </div>
 
         <!-- Пошукова форма -->
         <div id="hero-search" class="relative mt-6 lg:-mt-12">
           <div class="mx-auto max-w-container px-4 sm:px-6">
             <div class="rounded-panel bg-white p-5 shadow-floating sm:p-8">
-              <div class="mb-5 flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
+              <div
+                class="mb-5 flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between"
+              >
                 <h2
                   id="search-title"
                   class="font-heading text-xl font-bold md:text-2xl"
@@ -298,26 +316,59 @@
                      Обраний режим передається у формі як параметр mode. -->
                 <fieldset form="trip-search" class="min-w-0">
                   <legend class="sr-only">Режим пошуку</legend>
-                  <div class="grid grid-cols-[1.5fr_1fr_1fr] gap-1 rounded-card bg-cream p-1.5 sm:inline-flex sm:gap-2 sm:rounded-full">
+                  <div
+                    class="grid grid-cols-[1.5fr_1fr_1fr] gap-1 rounded-card bg-cream p-1.5 sm:inline-flex sm:gap-2 sm:rounded-full"
+                  >
                     <label class="block">
-                      <input type="radio" name="mode" value="full" form="trip-search" class="peer sr-only" checked>
+                      <input
+                        type="radio"
+                        name="mode"
+                        value="full"
+                        form="trip-search"
+                        class="peer sr-only"
+                        checked
+                      />
                       <span
                         class="flex h-full min-h-[44px] cursor-pointer items-center justify-center gap-2 whitespace-nowrap rounded-full px-1.5 text-center font-heading text-xs font-semibold leading-tight sm:min-h-[40px] sm:px-4 sm:text-sm text-ink-muted transition-colors duration-200 hover:text-brand peer-checked:bg-brand peer-checked:text-white peer-focus-visible:outline peer-focus-visible:outline-[3px] peer-focus-visible:outline-offset-2 peer-focus-visible:outline-focus"
-                        ><i class="fa-solid fa-suitcase-rolling hidden sm:inline" aria-hidden="true"></i>Повна подорож</span
+                        ><i
+                          class="fa-solid fa-suitcase-rolling hidden sm:inline"
+                          aria-hidden="true"
+                        ></i
+                        >Повна подорож</span
                       >
                     </label>
                     <label class="block">
-                      <input type="radio" name="mode" value="tickets" form="trip-search" class="peer sr-only">
+                      <input
+                        type="radio"
+                        name="mode"
+                        value="tickets"
+                        form="trip-search"
+                        class="peer sr-only"
+                      />
                       <span
                         class="flex h-full min-h-[44px] cursor-pointer items-center justify-center gap-2 whitespace-nowrap rounded-full px-1.5 text-center font-heading text-xs font-semibold leading-tight sm:min-h-[40px] sm:px-4 sm:text-sm text-ink-muted transition-colors duration-200 hover:text-brand peer-checked:bg-brand peer-checked:text-white peer-focus-visible:outline peer-focus-visible:outline-[3px] peer-focus-visible:outline-offset-2 peer-focus-visible:outline-focus"
-                        ><i class="fa-solid fa-ticket hidden sm:inline" aria-hidden="true"></i>Квитки</span
+                        ><i
+                          class="fa-solid fa-ticket hidden sm:inline"
+                          aria-hidden="true"
+                        ></i
+                        >Квитки</span
                       >
                     </label>
                     <label class="block">
-                      <input type="radio" name="mode" value="stay" form="trip-search" class="peer sr-only">
+                      <input
+                        type="radio"
+                        name="mode"
+                        value="stay"
+                        form="trip-search"
+                        class="peer sr-only"
+                      />
                       <span
                         class="flex h-full min-h-[44px] cursor-pointer items-center justify-center gap-2 whitespace-nowrap rounded-full px-1.5 text-center font-heading text-xs font-semibold leading-tight sm:min-h-[40px] sm:px-4 sm:text-sm text-ink-muted transition-colors duration-200 hover:text-brand peer-checked:bg-brand peer-checked:text-white peer-focus-visible:outline peer-focus-visible:outline-[3px] peer-focus-visible:outline-offset-2 peer-focus-visible:outline-focus"
-                        ><i class="fa-solid fa-bed hidden sm:inline" aria-hidden="true"></i>Житло</span
+                        ><i
+                          class="fa-solid fa-bed hidden sm:inline"
+                          aria-hidden="true"
+                        ></i
+                        >Житло</span
                       >
                     </label>
                   </div>
@@ -337,9 +388,14 @@
                 <label
                   class="flex cursor-text items-center gap-3 rounded-card bg-cream px-4 py-3 focus-within:outline focus-within:outline-[3px] focus-within:outline-offset-2 focus-within:outline-focus"
                 >
-                  <i class="fa-solid fa-location-dot text-xl text-brand" aria-hidden="true"></i>
+                  <i
+                    class="fa-solid fa-location-dot text-xl text-brand"
+                    aria-hidden="true"
+                  ></i>
                   <span class="flex min-w-0 flex-1 flex-col gap-0.5">
-                    <span class="text-xs font-medium text-ink-muted">Напрямок подорожі</span>
+                    <span class="text-xs font-medium text-ink-muted"
+                      >Напрямок подорожі</span
+                    >
                     <input
                       id="search-destination"
                       type="text"
@@ -348,46 +404,61 @@
                       autocomplete="off"
                       required
                       class="w-full border-0 bg-transparent p-0 text-sm placeholder:text-ink-muted focus:outline-none"
-                   >
+                    />
                   </span>
                 </label>
 
                 <label
                   class="flex cursor-text items-center gap-3 rounded-card bg-cream px-4 py-3 focus-within:outline focus-within:outline-[3px] focus-within:outline-offset-2 focus-within:outline-focus"
                 >
-                  <i class="fa-regular fa-calendar text-xl text-brand" aria-hidden="true"></i>
+                  <i
+                    class="fa-regular fa-calendar text-xl text-brand"
+                    aria-hidden="true"
+                  ></i>
                   <span class="flex min-w-0 flex-1 flex-col gap-0.5">
-                    <span class="text-xs font-medium text-ink-muted">Дата відправлення</span>
+                    <span class="text-xs font-medium text-ink-muted"
+                      >Дата відправлення</span
+                    >
                     <input
                       id="search-date-from"
                       type="date"
                       name="date_from"
                       class="w-full border-0 bg-transparent p-0 text-sm focus:outline-none"
-                   >
+                    />
                   </span>
                 </label>
 
                 <label
                   class="flex cursor-text items-center gap-3 rounded-card bg-cream px-4 py-3 focus-within:outline focus-within:outline-[3px] focus-within:outline-offset-2 focus-within:outline-focus"
                 >
-                  <i class="fa-regular fa-calendar-check text-xl text-brand" aria-hidden="true"></i>
+                  <i
+                    class="fa-regular fa-calendar-check text-xl text-brand"
+                    aria-hidden="true"
+                  ></i>
                   <span class="flex min-w-0 flex-1 flex-col gap-0.5">
-                    <span class="text-xs font-medium text-ink-muted">Дата повернення</span>
+                    <span class="text-xs font-medium text-ink-muted"
+                      >Дата повернення</span
+                    >
                     <input
                       id="search-date-to"
                       type="date"
                       name="date_to"
                       class="w-full border-0 bg-transparent p-0 text-sm focus:outline-none"
-                   >
+                    />
                   </span>
                 </label>
 
                 <label
                   class="flex cursor-text items-center gap-3 rounded-card bg-cream px-4 py-3 focus-within:outline focus-within:outline-[3px] focus-within:outline-offset-2 focus-within:outline-focus"
                 >
-                  <i class="fa-solid fa-user-group text-xl text-brand" aria-hidden="true"></i>
+                  <i
+                    class="fa-solid fa-user-group text-xl text-brand"
+                    aria-hidden="true"
+                  ></i>
                   <span class="flex min-w-0 flex-1 flex-col gap-0.5">
-                    <span class="text-xs font-medium text-ink-muted">Кількість мандрівників</span>
+                    <span class="text-xs font-medium text-ink-muted"
+                      >Кількість мандрівників</span
+                    >
                     <input
                       id="search-travelers"
                       type="number"
@@ -397,16 +468,21 @@
                       max="20"
                       placeholder="1 мандрівник"
                       class="w-full border-0 bg-transparent p-0 text-sm placeholder:text-ink-muted focus:outline-none"
-                   >
+                    />
                   </span>
                 </label>
 
                 <label
                   class="flex cursor-text items-center gap-3 rounded-card bg-cream px-4 py-3 focus-within:outline focus-within:outline-[3px] focus-within:outline-offset-2 focus-within:outline-focus"
                 >
-                  <i class="fa-solid fa-wallet text-xl text-brand" aria-hidden="true"></i>
+                  <i
+                    class="fa-solid fa-wallet text-xl text-brand"
+                    aria-hidden="true"
+                  ></i>
                   <span class="flex min-w-0 flex-1 flex-col gap-0.5">
-                    <span class="text-xs font-medium text-ink-muted">Орієнтовний бюджет, $</span>
+                    <span class="text-xs font-medium text-ink-muted"
+                      >Орієнтовний бюджет, $</span
+                    >
                     <input
                       id="search-budget"
                       type="number"
@@ -416,7 +492,7 @@
                       step="50"
                       placeholder="До 500"
                       class="w-full border-0 bg-transparent p-0 text-sm placeholder:text-ink-muted focus:outline-none"
-                   >
+                    />
                   </span>
                 </label>
 
@@ -451,14 +527,20 @@
           >
             Чому Travel for people
           </h2>
-          <p class="mx-auto mt-3 max-w-2xl text-center text-base text-ink-muted md:text-lg">
+          <p
+            class="mx-auto mt-3 max-w-2xl text-center text-base text-ink-muted md:text-lg"
+          >
             Плануй подорож від бюджету, а не навпаки.
           </p>
 
           <!-- mobile: 1 колонка → sm: 2 → xl: 4 -->
-          <ul class="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:mt-12 xl:grid-cols-4">
+          <ul
+            class="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:mt-12 xl:grid-cols-4"
+          >
             <li>
-              <div class="flex h-full flex-col gap-2 rounded-panel bg-white p-6 shadow-card md:p-8">
+              <div
+                class="flex h-full flex-col gap-2 rounded-panel bg-white p-6 shadow-card md:p-8"
+              >
                 <span
                   class="mb-3 inline-flex h-16 w-16 items-center justify-center rounded-full bg-cream-muted text-2xl text-brand"
                   aria-hidden="true"
@@ -472,13 +554,17 @@
               </div>
             </li>
             <li>
-              <div class="flex h-full flex-col gap-2 rounded-panel bg-white p-6 shadow-card md:p-8">
+              <div
+                class="flex h-full flex-col gap-2 rounded-panel bg-white p-6 shadow-card md:p-8"
+              >
                 <span
                   class="mb-3 inline-flex h-16 w-16 items-center justify-center rounded-full bg-cream-muted text-2xl text-brand"
                   aria-hidden="true"
                   ><i class="fa-solid fa-piggy-bank"></i
                 ></span>
-                <h3 class="font-heading text-xl font-bold">Планування за бюджетом</h3>
+                <h3 class="font-heading text-xl font-bold">
+                  Планування за бюджетом
+                </h3>
                 <p class="text-ink-muted">
                   Ти задаєш суму — ми підбираємо транспорт і житло, які в неї
                   вкладаються.
@@ -486,13 +572,17 @@
               </div>
             </li>
             <li>
-              <div class="flex h-full flex-col gap-2 rounded-panel bg-white p-6 shadow-card md:p-8">
+              <div
+                class="flex h-full flex-col gap-2 rounded-panel bg-white p-6 shadow-card md:p-8"
+              >
                 <span
                   class="mb-3 inline-flex h-16 w-16 items-center justify-center rounded-full bg-cream-muted text-2xl text-brand"
                   aria-hidden="true"
                   ><i class="fa-solid fa-route"></i
                 ></span>
-                <h3 class="font-heading text-xl font-bold">Персоналізовані маршрути</h3>
+                <h3 class="font-heading text-xl font-bold">
+                  Персоналізовані маршрути
+                </h3>
                 <p class="text-ink-muted">
                   Маршрут під твій темп, тривалість поїздки та кількість
                   мандрівників.
@@ -500,13 +590,17 @@
               </div>
             </li>
             <li>
-              <div class="flex h-full flex-col gap-2 rounded-panel bg-white p-6 shadow-card md:p-8">
+              <div
+                class="flex h-full flex-col gap-2 rounded-panel bg-white p-6 shadow-card md:p-8"
+              >
                 <span
                   class="mb-3 inline-flex h-16 w-16 items-center justify-center rounded-full bg-cream-muted text-2xl text-brand"
                   aria-hidden="true"
                   ><i class="fa-solid fa-layer-group"></i
                 ></span>
-                <h3 class="font-heading text-xl font-bold">Усе в одному місці</h3>
+                <h3 class="font-heading text-xl font-bold">
+                  Усе в одному місці
+                </h3>
                 <p class="text-ink-muted">
                   Квитки, житло, напрямки й орієнтовний кошторис — без
                   перемикання між сервісами.
@@ -550,7 +644,9 @@
           </figure>
 
           <!-- mobile: 1 колонка → sm: 2 → lg: 3 -->
-          <ul class="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:mt-12 lg:grid-cols-3 lg:gap-7">
+          <ul
+            class="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:mt-12 lg:grid-cols-3 lg:gap-7"
+          >
             <li
               class="relative flex flex-col gap-2 rounded-panel bg-white p-6 pb-20 shadow-card transition duration-300 hover:-translate-y-1 hover:shadow-floating md:p-8 md:pb-20"
             >
@@ -560,7 +656,9 @@
                 ><i class="fa-solid fa-suitcase-rolling"></i
               ></span>
               <h3 class="font-heading text-xl font-bold">Повна подорож</h3>
-              <p class="text-ink-muted">Транспорт, житло й маршрут в одному плані під твій бюджет.</p>
+              <p class="text-ink-muted">
+                Транспорт, житло й маршрут в одному плані під твій бюджет.
+              </p>
               <a
                 href="#hero-search"
                 data-search-mode="full"
@@ -580,7 +678,9 @@
                 ><i class="fa-solid fa-ticket"></i
               ></span>
               <h3 class="font-heading text-xl font-bold">Пошук транспорту</h3>
-              <p class="text-ink-muted">Квитки на літак, потяг чи автобус до обраного напрямку.</p>
+              <p class="text-ink-muted">
+                Квитки на літак, потяг чи автобус до обраного напрямку.
+              </p>
               <a
                 href="#hero-search"
                 data-search-mode="tickets"
@@ -600,7 +700,9 @@
                 ><i class="fa-solid fa-bed"></i
               ></span>
               <h3 class="font-heading text-xl font-bold">Пошук проживання</h3>
-              <p class="text-ink-muted">Готелі, хостели та апартаменти, що вписуються в бюджет.</p>
+              <p class="text-ink-muted">
+                Готелі, хостели та апартаменти, що вписуються в бюджет.
+              </p>
               <a
                 href="#hero-search"
                 data-search-mode="stay"
@@ -620,7 +722,9 @@
                 ><i class="fa-solid fa-map-location-dot"></i
               ></span>
               <h3 class="font-heading text-xl font-bold">Популярні напрямки</h3>
-              <p class="text-ink-muted">Міста й курорти для натхнення з орієнтовною вартістю поїздки.</p>
+              <p class="text-ink-muted">
+                Міста й курорти для натхнення з орієнтовною вартістю поїздки.
+              </p>
               <a
                 href="#destinations"
                 aria-label="Переглянути популярні напрямки"
@@ -639,7 +743,9 @@
                 ><i class="fa-solid fa-wallet"></i
               ></span>
               <h3 class="font-heading text-xl font-bold">Розрахунок бюджету</h3>
-              <p class="text-ink-muted">Орієнтовна сума поїздки: дорога, житло та витрати на місці.</p>
+              <p class="text-ink-muted">
+                Орієнтовна сума поїздки: дорога, житло та витрати на місці.
+              </p>
               <a
                 href="#hero-search"
                 data-search-mode="full"
@@ -658,9 +764,15 @@
                 aria-hidden="true"
                 ><i class="fa-solid fa-signs-post"></i
               ></span>
-              <h3 class="font-heading text-xl font-bold">Туристичні маршрути</h3>
-              <p class="text-ink-muted">Ідеї маршрутів на кілька днів із ключовими місцями напрямку.</p>
-              <p class="absolute bottom-6 right-6 rounded-full bg-cream px-3 py-1 text-xs font-semibold text-brand-strong">
+              <h3 class="font-heading text-xl font-bold">
+                Туристичні маршрути
+              </h3>
+              <p class="text-ink-muted">
+                Ідеї маршрутів на кілька днів із ключовими місцями напрямку.
+              </p>
+              <p
+                class="absolute bottom-6 right-6 rounded-full bg-cream px-3 py-1 text-xs font-semibold text-brand-strong"
+              >
                 Незабаром
               </p>
             </li>
@@ -686,7 +798,9 @@
           </p>
 
           <!-- mobile: 1 колонка → sm: 2 → xl: 4 -->
-          <div class="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:mt-12 xl:grid-cols-4">
+          <div
+            class="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:mt-12 xl:grid-cols-4"
+          >
             <!-- Card -->
             <article
               class="group flex flex-col overflow-hidden rounded-card bg-white shadow-card transition duration-300 hover:-translate-y-1 hover:shadow-floating"
@@ -699,7 +813,7 @@
                   height="250"
                   loading="lazy"
                   class="h-52 w-full object-cover transition duration-500 group-hover:scale-105"
-               >
+                />
               </div>
               <div class="flex flex-1 flex-col p-5">
                 <div class="flex items-start justify-between gap-3">
@@ -710,15 +824,20 @@
                 </p>
                 <ul class="mt-3 flex flex-wrap gap-2 text-xs text-ink-muted">
                   <li class="rounded-full bg-cream px-3 py-1">
-                    <i class="fa-regular fa-clock mr-1" aria-hidden="true"></i>4 дні
+                    <i class="fa-regular fa-clock mr-1" aria-hidden="true"></i>4
+                    дні
                   </li>
                   <li class="rounded-full bg-cream px-3 py-1">
-                    <i class="fa-solid fa-plane mr-1" aria-hidden="true"></i>переліт + житло
+                    <i class="fa-solid fa-plane mr-1" aria-hidden="true"></i
+                    >переліт + житло
                   </li>
                 </ul>
-                <div class="mt-auto flex items-center justify-between gap-3 pt-5">
+                <div
+                  class="mt-auto flex items-center justify-between gap-3 pt-5"
+                >
                   <p class="font-heading text-xl font-bold text-brand-strong">
-                    <span class="text-sm font-medium text-ink-muted">від</span> 320 $
+                    <span class="text-sm font-medium text-ink-muted">від</span>
+                    320 $
                   </p>
                   <a
                     href="#hero-search"
@@ -744,7 +863,7 @@
                   height="250"
                   loading="lazy"
                   class="h-52 w-full object-cover transition duration-500 group-hover:scale-105"
-               >
+                />
               </div>
               <div class="flex flex-1 flex-col p-5">
                 <div class="flex items-start justify-between gap-3">
@@ -755,15 +874,20 @@
                 </p>
                 <ul class="mt-3 flex flex-wrap gap-2 text-xs text-ink-muted">
                   <li class="rounded-full bg-cream px-3 py-1">
-                    <i class="fa-regular fa-clock mr-1" aria-hidden="true"></i>5 днів
+                    <i class="fa-regular fa-clock mr-1" aria-hidden="true"></i>5
+                    днів
                   </li>
                   <li class="rounded-full bg-cream px-3 py-1">
-                    <i class="fa-solid fa-plane mr-1" aria-hidden="true"></i>переліт + житло
+                    <i class="fa-solid fa-plane mr-1" aria-hidden="true"></i
+                    >переліт + житло
                   </li>
                 </ul>
-                <div class="mt-auto flex items-center justify-between gap-3 pt-5">
+                <div
+                  class="mt-auto flex items-center justify-between gap-3 pt-5"
+                >
                   <p class="font-heading text-xl font-bold text-brand-strong">
-                    <span class="text-sm font-medium text-ink-muted">від</span> 450 $
+                    <span class="text-sm font-medium text-ink-muted">від</span>
+                    450 $
                   </p>
                   <a
                     href="#hero-search"
@@ -789,7 +913,7 @@
                   height="250"
                   loading="lazy"
                   class="h-52 w-full object-cover transition duration-500 group-hover:scale-105"
-               >
+                />
               </div>
               <div class="flex flex-1 flex-col p-5">
                 <div class="flex items-start justify-between gap-3">
@@ -800,15 +924,20 @@
                 </p>
                 <ul class="mt-3 flex flex-wrap gap-2 text-xs text-ink-muted">
                   <li class="rounded-full bg-cream px-3 py-1">
-                    <i class="fa-regular fa-clock mr-1" aria-hidden="true"></i>3 дні
+                    <i class="fa-regular fa-clock mr-1" aria-hidden="true"></i>3
+                    дні
                   </li>
                   <li class="rounded-full bg-cream px-3 py-1">
-                    <i class="fa-solid fa-plane mr-1" aria-hidden="true"></i>переліт + житло
+                    <i class="fa-solid fa-plane mr-1" aria-hidden="true"></i
+                    >переліт + житло
                   </li>
                 </ul>
-                <div class="mt-auto flex items-center justify-between gap-3 pt-5">
+                <div
+                  class="mt-auto flex items-center justify-between gap-3 pt-5"
+                >
                   <p class="font-heading text-xl font-bold text-brand-strong">
-                    <span class="text-sm font-medium text-ink-muted">від</span> 380 $
+                    <span class="text-sm font-medium text-ink-muted">від</span>
+                    380 $
                   </p>
                   <a
                     href="#hero-search"
@@ -834,7 +963,7 @@
                   height="250"
                   loading="lazy"
                   class="h-52 w-full object-cover transition duration-500 group-hover:scale-105"
-               >
+                />
               </div>
               <div class="flex flex-1 flex-col p-5">
                 <div class="flex items-start justify-between gap-3">
@@ -845,15 +974,20 @@
                 </p>
                 <ul class="mt-3 flex flex-wrap gap-2 text-xs text-ink-muted">
                   <li class="rounded-full bg-cream px-3 py-1">
-                    <i class="fa-regular fa-clock mr-1" aria-hidden="true"></i>6 днів
+                    <i class="fa-regular fa-clock mr-1" aria-hidden="true"></i>6
+                    днів
                   </li>
                   <li class="rounded-full bg-cream px-3 py-1">
-                    <i class="fa-solid fa-bus mr-1" aria-hidden="true"></i>проїзд + житло
+                    <i class="fa-solid fa-bus mr-1" aria-hidden="true"></i
+                    >проїзд + житло
                   </li>
                 </ul>
-                <div class="mt-auto flex items-center justify-between gap-3 pt-5">
+                <div
+                  class="mt-auto flex items-center justify-between gap-3 pt-5"
+                >
                   <p class="font-heading text-xl font-bold text-brand-strong">
-                    <span class="text-sm font-medium text-ink-muted">від</span> 210 $
+                    <span class="text-sm font-medium text-ink-muted">від</span>
+                    210 $
                   </p>
                   <a
                     href="#hero-search"
@@ -882,7 +1016,10 @@
           class="mx-auto grid max-w-container grid-cols-1 items-center gap-8 px-4 sm:px-6 md:grid-cols-[1.3fr_0.9fr] md:gap-10"
         >
           <div>
-            <h2 id="about-title" class="font-heading text-2xl font-bold sm:text-3xl">
+            <h2
+              id="about-title"
+              class="font-heading text-2xl font-bold sm:text-3xl"
+            >
               Про нас
             </h2>
             <p class="mt-4 max-w-xl text-ink-muted">
@@ -895,15 +1032,27 @@
             <dl class="mt-7 flex flex-wrap gap-6 sm:gap-8">
               <div class="flex flex-col-reverse">
                 <dt class="text-sm text-ink-muted">режими пошуку</dt>
-                <dd class="font-heading text-2xl font-extrabold text-brand-strong">3</dd>
+                <dd
+                  class="font-heading text-2xl font-extrabold text-brand-strong"
+                >
+                  3
+                </dd>
               </div>
               <div class="flex flex-col-reverse">
                 <dt class="text-sm text-ink-muted">можливостей планування</dt>
-                <dd class="font-heading text-2xl font-extrabold text-brand-strong">6</dd>
+                <dd
+                  class="font-heading text-2xl font-extrabold text-brand-strong"
+                >
+                  6
+                </dd>
               </div>
               <div class="flex flex-col-reverse">
                 <dt class="text-sm text-ink-muted">форма для всього плану</dt>
-                <dd class="font-heading text-2xl font-extrabold text-brand-strong">1</dd>
+                <dd
+                  class="font-heading text-2xl font-extrabold text-brand-strong"
+                >
+                  1
+                </dd>
               </div>
             </dl>
           </div>
@@ -915,7 +1064,7 @@
             height="256"
             loading="lazy"
             class="w-full max-w-md justify-self-center rounded-panel object-cover md:justify-self-end"
-         >
+          />
         </div>
       </section>
 
@@ -938,45 +1087,63 @@
           >
             Відгуки мандрівників
           </h2>
-          <p class="mx-auto mt-3 max-w-2xl text-center text-base text-ink-muted md:text-lg">
-            Ми лише запускаємось, тож справжні відгуки з'являться тут згодом.
-            А поки — приклади того, як сервіс допомагає різним мандрівникам.
+          <p
+            class="mx-auto mt-3 max-w-2xl text-center text-base text-ink-muted md:text-lg"
+          >
+            Ми лише запускаємось, тож справжні відгуки з'являться тут згодом. А
+            поки — приклади того, як сервіс допомагає різним мандрівникам.
           </p>
 
-          <ul class="mt-10 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+          <ul
+            class="mt-10 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3"
+          >
             <li>
-              <article class="relative flex h-full items-start gap-4 rounded-card bg-white p-6 shadow-card">
+              <article
+                class="relative flex h-full items-start gap-4 rounded-card bg-white p-6 shadow-card"
+              >
                 <span
                   class="inline-flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-cream-muted text-xl text-brand sm:h-16 sm:w-16"
                   aria-hidden="true"
                   ><i class="fa-solid fa-graduation-cap"></i
                 ></span>
                 <div class="flex flex-col gap-1.5">
-                  <p class="w-fit rounded-full bg-cream px-3 py-1 text-xs font-semibold text-brand-strong">
+                  <p
+                    class="w-fit rounded-full bg-cream px-3 py-1 text-xs font-semibold text-brand-strong"
+                  >
                     Приклад сценарію
                   </p>
-                  <h3 class="font-heading text-lg font-bold">Студентський вікенд</h3>
-                  <p class="text-sm text-ink-muted">Бюджет до 250 $ · 2 мандрівники</p>
+                  <h3 class="font-heading text-lg font-bold">
+                    Студентський вікенд
+                  </h3>
+                  <p class="text-sm text-ink-muted">
+                    Бюджет до 250 $ · 2 мандрівники
+                  </p>
                   <p class="text-[15px]">
-                    Обираєш місто, дати й суму — і отримуєш дорогу та хостел,
-                    що вкладаються в бюджет, без десятка відкритих вкладок.
+                    Обираєш місто, дати й суму — і отримуєш дорогу та хостел, що
+                    вкладаються в бюджет, без десятка відкритих вкладок.
                   </p>
                 </div>
               </article>
             </li>
             <li>
-              <article class="relative flex h-full items-start gap-4 rounded-card bg-white p-6 shadow-card">
+              <article
+                class="relative flex h-full items-start gap-4 rounded-card bg-white p-6 shadow-card"
+              >
                 <span
                   class="inline-flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-cream-muted text-xl text-brand sm:h-16 sm:w-16"
                   aria-hidden="true"
                   ><i class="fa-regular fa-heart"></i
                 ></span>
                 <div class="flex flex-col gap-1.5">
-                  <p class="w-fit rounded-full bg-cream px-3 py-1 text-xs font-semibold text-brand-strong">
+                  <p
+                    class="w-fit rounded-full bg-cream px-3 py-1 text-xs font-semibold text-brand-strong"
+                  >
                     Приклад сценарію
                   </p>
                   <h3 class="font-heading text-lg font-bold">Подорож удвох</h3>
-                  <p class="text-sm text-ink-muted">Бюджет до 900 $ · 2 мандрівники</p>
+                  <p class="text-sm text-ink-muted">
+                    Бюджет до 900 $ · 2 мандрівники
+                  </p>
                   <p class="text-[15px]">
                     Режим «Повна подорож» збирає квитки й житло для двох в один
                     план, тож загальну вартість видно одразу.
@@ -985,18 +1152,26 @@
               </article>
             </li>
             <li class="md:col-span-2 lg:col-span-1">
-              <article class="relative flex h-full items-start gap-4 rounded-card bg-white p-6 shadow-card">
+              <article
+                class="relative flex h-full items-start gap-4 rounded-card bg-white p-6 shadow-card"
+              >
                 <span
                   class="inline-flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-cream-muted text-xl text-brand sm:h-16 sm:w-16"
                   aria-hidden="true"
                   ><i class="fa-solid fa-people-roof"></i
                 ></span>
                 <div class="flex flex-col gap-1.5">
-                  <p class="w-fit rounded-full bg-cream px-3 py-1 text-xs font-semibold text-brand-strong">
+                  <p
+                    class="w-fit rounded-full bg-cream px-3 py-1 text-xs font-semibold text-brand-strong"
+                  >
                     Приклад сценарію
                   </p>
-                  <h3 class="font-heading text-lg font-bold">Сімейна відпустка</h3>
-                  <p class="text-sm text-ink-muted">Бюджет до 1 500 $ · 4 мандрівники</p>
+                  <h3 class="font-heading text-lg font-bold">
+                    Сімейна відпустка
+                  </h3>
+                  <p class="text-sm text-ink-muted">
+                    Бюджет до 1 500 $ · 4 мандрівники
+                  </p>
                   <p class="text-[15px]">
                     Кількість мандрівників враховується в розрахунку — простіше
                     підібрати житло й маршрут, зручні для всієї родини.
@@ -1012,13 +1187,15 @@
       <section aria-labelledby="cta-title" class="pb-14 md:pb-16">
         <div class="mx-auto max-w-container px-4 sm:px-6">
           <!-- cta-overlay: градієнт-затемнення через ::before у style.css -->
-          <div class="cta-overlay relative overflow-hidden rounded-panel px-6 py-14 md:px-12 md:py-24">
+          <div
+            class="cta-overlay relative overflow-hidden rounded-panel px-6 py-14 md:px-12 md:py-24"
+          >
             <img
               src="assets/images/cta-banner.webp"
               alt=""
               loading="lazy"
               class="absolute inset-0 h-full w-full object-cover"
-           >
+            />
             <div class="relative z-[2] max-w-xl">
               <h2
                 id="cta-title"
@@ -1062,7 +1239,7 @@
               height="30"
               loading="lazy"
               class="h-[30px] w-[30px] object-contain brightness-0 invert"
-           >
+            />
             <span>Travel for people</span>
           </a>
           <p class="mt-3 max-w-xs text-sm">
@@ -1104,44 +1281,123 @@
 
         <!-- 2. Додаткова навігація -->
         <nav aria-labelledby="footer-nav-title">
-          <h3 id="footer-nav-title" class="mb-4 font-heading text-base font-bold text-white">
+          <h3
+            id="footer-nav-title"
+            class="mb-4 font-heading text-base font-bold text-white"
+          >
             Розділи сайту
           </h3>
           <ul class="flex flex-col gap-1">
-            <li><a href="#top" class="inline-block rounded py-3 md:py-1.5 text-sm transition-colors duration-200 hover:text-white hover:underline focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-white">Головна</a></li>
-            <li><a href="#benefits" class="inline-block rounded py-3 md:py-1.5 text-sm transition-colors duration-200 hover:text-white hover:underline focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-white">Переваги</a></li>
-            <li><a href="#services" class="inline-block rounded py-3 md:py-1.5 text-sm transition-colors duration-200 hover:text-white hover:underline focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-white">Послуги</a></li>
-            <li><a href="#destinations" class="inline-block rounded py-3 md:py-1.5 text-sm transition-colors duration-200 hover:text-white hover:underline focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-white">Напрямки</a></li>
-            <li><a href="#testimonials" class="inline-block rounded py-3 md:py-1.5 text-sm transition-colors duration-200 hover:text-white hover:underline focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-white">Відгуки</a></li>
-            <li><a href="#about" class="inline-block rounded py-3 md:py-1.5 text-sm transition-colors duration-200 hover:text-white hover:underline focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-white">Про нас</a></li>
+            <li>
+              <a
+                href="#top"
+                class="inline-block rounded py-3 md:py-1.5 text-sm transition-colors duration-200 hover:text-white hover:underline focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-white"
+                >Головна</a
+              >
+            </li>
+            <li>
+              <a
+                href="#benefits"
+                class="inline-block rounded py-3 md:py-1.5 text-sm transition-colors duration-200 hover:text-white hover:underline focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-white"
+                >Переваги</a
+              >
+            </li>
+            <li>
+              <a
+                href="#services"
+                class="inline-block rounded py-3 md:py-1.5 text-sm transition-colors duration-200 hover:text-white hover:underline focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-white"
+                >Послуги</a
+              >
+            </li>
+            <li>
+              <a
+                href="#destinations"
+                class="inline-block rounded py-3 md:py-1.5 text-sm transition-colors duration-200 hover:text-white hover:underline focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-white"
+                >Напрямки</a
+              >
+            </li>
+            <li>
+              <a
+                href="#testimonials"
+                class="inline-block rounded py-3 md:py-1.5 text-sm transition-colors duration-200 hover:text-white hover:underline focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-white"
+                >Відгуки</a
+              >
+            </li>
+            <li>
+              <a
+                href="#about"
+                class="inline-block rounded py-3 md:py-1.5 text-sm transition-colors duration-200 hover:text-white hover:underline focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-white"
+                >Про нас</a
+              >
+            </li>
           </ul>
         </nav>
 
         <!-- 3. Послуги -->
         <nav aria-labelledby="footer-services-title">
-          <h3 id="footer-services-title" class="mb-4 font-heading text-base font-bold text-white">
+          <h3
+            id="footer-services-title"
+            class="mb-4 font-heading text-base font-bold text-white"
+          >
             Послуги
           </h3>
           <ul class="flex flex-col gap-1">
-            <li><a href="#hero-search" data-search-mode="full" class="inline-block rounded py-3 md:py-1.5 text-sm transition-colors duration-200 hover:text-white hover:underline focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-white">Планування подорожі</a></li>
-            <li><a href="#hero-search" data-search-mode="tickets" class="inline-block rounded py-3 md:py-1.5 text-sm transition-colors duration-200 hover:text-white hover:underline focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-white">Квитки</a></li>
-            <li><a href="#hero-search" data-search-mode="stay" class="inline-block rounded py-3 md:py-1.5 text-sm transition-colors duration-200 hover:text-white hover:underline focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-white">Житло</a></li>
-            <li><a href="#destinations" class="inline-block rounded py-3 md:py-1.5 text-sm transition-colors duration-200 hover:text-white hover:underline focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-white">Популярні напрямки</a></li>
+            <li>
+              <a
+                href="#hero-search"
+                data-search-mode="full"
+                class="inline-block rounded py-3 md:py-1.5 text-sm transition-colors duration-200 hover:text-white hover:underline focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-white"
+                >Планування подорожі</a
+              >
+            </li>
+            <li>
+              <a
+                href="#hero-search"
+                data-search-mode="tickets"
+                class="inline-block rounded py-3 md:py-1.5 text-sm transition-colors duration-200 hover:text-white hover:underline focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-white"
+                >Квитки</a
+              >
+            </li>
+            <li>
+              <a
+                href="#hero-search"
+                data-search-mode="stay"
+                class="inline-block rounded py-3 md:py-1.5 text-sm transition-colors duration-200 hover:text-white hover:underline focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-white"
+                >Житло</a
+              >
+            </li>
+            <li>
+              <a
+                href="#destinations"
+                class="inline-block rounded py-3 md:py-1.5 text-sm transition-colors duration-200 hover:text-white hover:underline focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-white"
+                >Популярні напрямки</a
+              >
+            </li>
           </ul>
         </nav>
 
         <!-- 4. Контакти (ціль пункту меню «Контакти») -->
         <div id="contacts">
-          <h3 class="mb-4 font-heading text-base font-bold text-white">Контакти</h3>
+          <h3 class="mb-4 font-heading text-base font-bold text-white">
+            Контакти
+          </h3>
           <address class="not-italic">
             <ul class="flex flex-col gap-1 text-sm">
               <li class="flex items-center gap-2">
                 <i class="fa-solid fa-phone w-4" aria-hidden="true"></i>
-                <a href="tel:+380501234567" class="inline-block rounded py-3 md:py-1.5 transition-colors duration-200 hover:text-white hover:underline focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-white">+38&nbsp;(050)&nbsp;123&nbsp;45&nbsp;67</a>
+                <a
+                  href="tel:+380501234567"
+                  class="inline-block rounded py-3 md:py-1.5 transition-colors duration-200 hover:text-white hover:underline focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-white"
+                  >+38&nbsp;(050)&nbsp;123&nbsp;45&nbsp;67</a
+                >
               </li>
               <li class="flex items-center gap-2">
                 <i class="fa-solid fa-envelope w-4" aria-hidden="true"></i>
-                <a href="mailto:hello@travelforpeople.com" class="inline-block break-all rounded py-3 md:py-1.5 transition-colors duration-200 hover:text-white hover:underline focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-white">hello@travelforpeople.com</a>
+                <a
+                  href="mailto:hello@travelforpeople.com"
+                  class="inline-block break-all rounded py-3 md:py-1.5 transition-colors duration-200 hover:text-white hover:underline focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-white"
+                  >hello@travelforpeople.com</a
+                >
               </li>
               <li class="flex items-center gap-2 py-1.5">
                 <i class="fa-solid fa-location-dot w-4" aria-hidden="true"></i>
@@ -1168,7 +1424,9 @@
                 target="_blank"
                 rel="noopener noreferrer"
                 class="inline-block rounded py-3 md:py-1.5 transition-colors duration-200 hover:text-white hover:underline focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-white"
-                >Відкрити в Google Картах<span class="sr-only"> (відкривається в новій вкладці)</span></a
+                >Відкрити в Google Картах<span class="sr-only">
+                  (відкривається в новій вкладці)</span
+                ></a
               >
             </figcaption>
           </figure>
@@ -1176,9 +1434,7 @@
       </div>
 
       <div class="border-t border-white/15">
-        <div
-          class="mx-auto flex max-w-container px-4 py-6 text-sm sm:px-6"
-        >
+        <div class="mx-auto flex max-w-container px-4 py-6 text-sm sm:px-6">
           <p>© 2026 Travel for people. Усі права захищено.</p>
         </div>
       </div>
@@ -1194,7 +1450,10 @@
       function setMenu(open) {
         mobileMenu.classList.toggle("hidden", !open);
         menuToggle.setAttribute("aria-expanded", String(open));
-        menuToggle.setAttribute("aria-label", open ? "Закрити меню" : "Відкрити меню");
+        menuToggle.setAttribute(
+          "aria-label",
+          open ? "Закрити меню" : "Відкрити меню",
+        );
         menuIcon.classList.toggle("fa-bars", !open);
         menuIcon.classList.toggle("fa-xmark", open);
       }
@@ -1216,10 +1475,11 @@
         link.addEventListener("click", (event) => {
           event.preventDefault();
           const radio = document.querySelector(
-            `input[name="mode"][value="${link.dataset.searchMode}"]`
+            `input[name="mode"][value="${link.dataset.searchMode}"]`,
           );
           if (radio) radio.checked = true;
-          if (link.dataset.destination) destinationInput.value = link.dataset.destination;
+          if (link.dataset.destination)
+            destinationInput.value = link.dataset.destination;
           history.replaceState(null, "", "#hero-search");
           searchBlock.scrollIntoView();
           destinationInput.focus({ preventScroll: true });
@@ -1244,7 +1504,7 @@
         dateTo.setCustomValidity(
           dateFrom.value && dateTo.value && dateTo.value < dateFrom.value
             ? "Дата повернення не може бути раніше дати відправлення"
-            : ""
+            : "",
         );
         const invalid = searchForm.querySelector(":invalid");
         if (invalid) {
