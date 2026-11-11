@@ -1,0 +1,342 @@
+<!-- Вставити в HTML-панель Tailwind Play. Конфіг теми додано нижче як <script> -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+<script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              brand: {
+                DEFAULT: "#67753a",
+                hover: "#556130",
+                strong: "#596530",
+              },
+              cream: { DEFAULT: "#f5f3e6", muted: "#efeddc" },
+              ink: { DEFAULT: "#28301c", muted: "#63675a" },
+              rating: "#f5b400",
+              focus: "#2f5dcc",
+            },
+            fontFamily: {
+              heading: ["Poppins", "Segoe UI", "Arial", "sans-serif"],
+              sans: ["Inter", "system-ui", "Segoe UI", "Arial", "sans-serif"],
+            },
+            borderRadius: { card: "18px", panel: "28px" },
+            boxShadow: {
+              header: "0 2px 12px rgba(0, 0, 0, 0.06)",
+              card: "0 10px 30px rgba(40, 48, 28, 0.07)",
+              floating: "0 20px 50px rgba(40, 48, 28, 0.18)",
+            },
+            maxWidth: { container: "1240px" },
+          },
+        },
+      };
+    </script>
+<div class="min-h-screen bg-cream font-sans text-ink">
+<div class="mx-auto max-w-container p-6">
+<!-- mobile: 1 колонка → sm: 2 → lg: 3 -->
+          <div class="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:mt-12 lg:grid-cols-3">
+            <!-- Card -->
+            <article
+              class="group flex flex-col overflow-hidden rounded-card bg-white shadow-card transition duration-300 hover:-translate-y-1 hover:shadow-floating"
+            >
+              <div class="relative overflow-hidden">
+                <img
+                  src="https://placehold.co/600x400?text=img&_=images/destinations/praha.webp"
+                  alt="Старе місто Праги з червоними дахами"
+                  width="333"
+                  height="250"
+                  loading="lazy"
+                  class="h-52 w-full object-cover transition duration-500 group-hover:scale-105"
+                />
+                <span
+                  class="absolute left-3 top-3 rounded-full bg-white/90 px-3 py-1 text-xs font-semibold text-brand-strong"
+                  >Хіт сезону</span
+                >
+              </div>
+              <div class="flex flex-1 flex-col p-5">
+                <div class="flex items-start justify-between gap-3">
+                  <h3 class="font-heading text-lg font-bold">Прага</h3>
+                  <p class="flex items-center gap-1 text-sm text-ink-muted">
+                    <i class="fa-solid fa-star text-rating" aria-hidden="true"></i>
+                    <span class="sr-only">Рейтинг:</span> 4.9
+                  </p>
+                </div>
+                <p class="mt-1 text-sm text-ink-muted">
+                  Чехія · середньовічні вулиці, Карлів міст і чеська кухня.
+                </p>
+                <ul class="mt-3 flex flex-wrap gap-2 text-xs text-ink-muted">
+                  <li class="rounded-full bg-cream px-3 py-1">
+                    <i class="fa-regular fa-clock mr-1" aria-hidden="true"></i>4 дні
+                  </li>
+                  <li class="rounded-full bg-cream px-3 py-1">
+                    <i class="fa-solid fa-plane mr-1" aria-hidden="true"></i>переліт + житло
+                  </li>
+                </ul>
+                <div class="mt-auto flex items-center justify-between gap-3 pt-5">
+                  <p class="font-heading text-xl font-bold text-brand-strong">
+                    <span class="text-sm font-medium text-ink-muted">від</span> 320 $
+                  </p>
+                  <button
+                    type="button"
+                    data-book
+                    aria-label="Забронювати тур до Праги"
+                    class="min-h-[44px] rounded-full bg-brand px-5 py-2.5 font-heading text-sm font-semibold text-white transition duration-200 hover:bg-brand-hover focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-offset-2 focus-visible:outline-focus active:scale-95"
+                  >
+                    Забронювати
+                  </button>
+                </div>
+              </div>
+            </article>
+
+            <article
+              class="group flex flex-col overflow-hidden rounded-card bg-white shadow-card transition duration-300 hover:-translate-y-1 hover:shadow-floating"
+            >
+              <div class="relative overflow-hidden">
+                <img
+                  src="https://placehold.co/600x400?text=img&_=images/destinations/rome.webp"
+                  alt="Колізей у Римі"
+                  width="333"
+                  height="250"
+                  loading="lazy"
+                  class="h-52 w-full object-cover transition duration-500 group-hover:scale-105"
+                />
+              </div>
+              <div class="flex flex-1 flex-col p-5">
+                <div class="flex items-start justify-between gap-3">
+                  <h3 class="font-heading text-lg font-bold">Рим</h3>
+                  <p class="flex items-center gap-1 text-sm text-ink-muted">
+                    <i class="fa-solid fa-star text-rating" aria-hidden="true"></i>
+                    <span class="sr-only">Рейтинг:</span> 4.8
+                  </p>
+                </div>
+                <p class="mt-1 text-sm text-ink-muted">
+                  Італія · Колізей, Ватикан і найкраща паста у твоєму житті.
+                </p>
+                <ul class="mt-3 flex flex-wrap gap-2 text-xs text-ink-muted">
+                  <li class="rounded-full bg-cream px-3 py-1">
+                    <i class="fa-regular fa-clock mr-1" aria-hidden="true"></i>5 днів
+                  </li>
+                  <li class="rounded-full bg-cream px-3 py-1">
+                    <i class="fa-solid fa-plane mr-1" aria-hidden="true"></i>переліт + житло
+                  </li>
+                </ul>
+                <div class="mt-auto flex items-center justify-between gap-3 pt-5">
+                  <p class="font-heading text-xl font-bold text-brand-strong">
+                    <span class="text-sm font-medium text-ink-muted">від</span> 450 $
+                  </p>
+                  <button
+                    type="button"
+                    data-book
+                    aria-label="Забронювати тур до Риму"
+                    class="min-h-[44px] rounded-full bg-brand px-5 py-2.5 font-heading text-sm font-semibold text-white transition duration-200 hover:bg-brand-hover focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-offset-2 focus-visible:outline-focus active:scale-95"
+                  >
+                    Забронювати
+                  </button>
+                </div>
+              </div>
+            </article>
+
+            <article
+              class="group flex flex-col overflow-hidden rounded-card bg-white shadow-card transition duration-300 hover:-translate-y-1 hover:shadow-floating"
+            >
+              <div class="relative overflow-hidden">
+                <img
+                  src="https://placehold.co/600x400?text=img&_=images/destinations/barcelona.webp"
+                  alt="Вид на Барселону та собор Саграда Фамілія"
+                  width="333"
+                  height="250"
+                  loading="lazy"
+                  class="h-52 w-full object-cover transition duration-500 group-hover:scale-105"
+                />
+                <span
+                  class="absolute left-3 top-3 rounded-full bg-white/90 px-3 py-1 text-xs font-semibold text-brand-strong"
+                  >−15%</span
+                >
+              </div>
+              <div class="flex flex-1 flex-col p-5">
+                <div class="flex items-start justify-between gap-3">
+                  <h3 class="font-heading text-lg font-bold">Барселона</h3>
+                  <p class="flex items-center gap-1 text-sm text-ink-muted">
+                    <i class="fa-solid fa-star text-rating" aria-hidden="true"></i>
+                    <span class="sr-only">Рейтинг:</span> 4.9
+                  </p>
+                </div>
+                <p class="mt-1 text-sm text-ink-muted">
+                  Іспанія · архітектура Гауді, море та нічне життя.
+                </p>
+                <ul class="mt-3 flex flex-wrap gap-2 text-xs text-ink-muted">
+                  <li class="rounded-full bg-cream px-3 py-1">
+                    <i class="fa-regular fa-clock mr-1" aria-hidden="true"></i>3 дні
+                  </li>
+                  <li class="rounded-full bg-cream px-3 py-1">
+                    <i class="fa-solid fa-plane mr-1" aria-hidden="true"></i>переліт + житло
+                  </li>
+                </ul>
+                <div class="mt-auto flex items-center justify-between gap-3 pt-5">
+                  <p class="font-heading text-xl font-bold text-brand-strong">
+                    <span class="text-sm font-medium text-ink-muted">від</span> 380 $
+                  </p>
+                  <button
+                    type="button"
+                    data-book
+                    aria-label="Забронювати тур до Барселони"
+                    class="min-h-[44px] rounded-full bg-brand px-5 py-2.5 font-heading text-sm font-semibold text-white transition duration-200 hover:bg-brand-hover focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-offset-2 focus-visible:outline-focus active:scale-95"
+                  >
+                    Забронювати
+                  </button>
+                </div>
+              </div>
+            </article>
+
+            <article
+              class="group flex flex-col overflow-hidden rounded-card bg-white shadow-card transition duration-300 hover:-translate-y-1 hover:shadow-floating"
+            >
+              <div class="relative overflow-hidden">
+                <img
+                  src="https://placehold.co/600x400?text=img&_=images/destinations/krakow.webp"
+                  alt="Історичний центр Кракова"
+                  width="333"
+                  height="250"
+                  loading="lazy"
+                  class="h-52 w-full object-cover transition duration-500 group-hover:scale-105"
+                />
+              </div>
+              <div class="flex flex-1 flex-col p-5">
+                <div class="flex items-start justify-between gap-3">
+                  <h3 class="font-heading text-lg font-bold">Краків</h3>
+                  <p class="flex items-center gap-1 text-sm text-ink-muted">
+                    <i class="fa-solid fa-star text-rating" aria-hidden="true"></i>
+                    <span class="sr-only">Рейтинг:</span> 4.7
+                  </p>
+                </div>
+                <p class="mt-1 text-sm text-ink-muted">
+                  Польща · Ринкова площа, Вавель і затишні кав'ярні.
+                </p>
+                <ul class="mt-3 flex flex-wrap gap-2 text-xs text-ink-muted">
+                  <li class="rounded-full bg-cream px-3 py-1">
+                    <i class="fa-regular fa-clock mr-1" aria-hidden="true"></i>6 днів
+                  </li>
+                  <li class="rounded-full bg-cream px-3 py-1">
+                    <i class="fa-solid fa-bus mr-1" aria-hidden="true"></i>проїзд + житло
+                  </li>
+                </ul>
+                <div class="mt-auto flex items-center justify-between gap-3 pt-5">
+                  <p class="font-heading text-xl font-bold text-brand-strong">
+                    <span class="text-sm font-medium text-ink-muted">від</span> 210 $
+                  </p>
+                  <button
+                    type="button"
+                    data-book
+                    aria-label="Забронювати тур до Кракова"
+                    class="min-h-[44px] rounded-full bg-brand px-5 py-2.5 font-heading text-sm font-semibold text-white transition duration-200 hover:bg-brand-hover focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-offset-2 focus-visible:outline-focus active:scale-95"
+                  >
+                    Забронювати
+                  </button>
+                </div>
+              </div>
+            </article>
+
+            <article
+              class="group flex flex-col overflow-hidden rounded-card bg-white shadow-card transition duration-300 hover:-translate-y-1 hover:shadow-floating"
+            >
+              <div class="relative overflow-hidden">
+                <img
+                  src="https://placehold.co/600x400?text=img&_=images/cta-banner.webp"
+                  alt="Узбережжя Амальфі на заході сонця"
+                  width="1430"
+                  height="527"
+                  loading="lazy"
+                  class="h-52 w-full object-cover transition duration-500 group-hover:scale-105"
+                />
+                <span
+                  class="absolute left-3 top-3 rounded-full bg-white/90 px-3 py-1 text-xs font-semibold text-brand-strong"
+                  >Новинка</span
+                >
+              </div>
+              <div class="flex flex-1 flex-col p-5">
+                <div class="flex items-start justify-between gap-3">
+                  <h3 class="font-heading text-lg font-bold">Амальфі</h3>
+                  <p class="flex items-center gap-1 text-sm text-ink-muted">
+                    <i class="fa-solid fa-star text-rating" aria-hidden="true"></i>
+                    <span class="sr-only">Рейтинг:</span> 5.0
+                  </p>
+                </div>
+                <p class="mt-1 text-sm text-ink-muted">
+                  Італія · серпантини над морем, лимонні сади та захід сонця.
+                </p>
+                <ul class="mt-3 flex flex-wrap gap-2 text-xs text-ink-muted">
+                  <li class="rounded-full bg-cream px-3 py-1">
+                    <i class="fa-regular fa-clock mr-1" aria-hidden="true"></i>7 днів
+                  </li>
+                  <li class="rounded-full bg-cream px-3 py-1">
+                    <i class="fa-solid fa-plane mr-1" aria-hidden="true"></i>переліт + житло
+                  </li>
+                </ul>
+                <div class="mt-auto flex items-center justify-between gap-3 pt-5">
+                  <p class="font-heading text-xl font-bold text-brand-strong">
+                    <span class="text-sm font-medium text-ink-muted">від</span> 690 $
+                  </p>
+                  <button
+                    type="button"
+                    data-book
+                    aria-label="Забронювати тур до Амальфі"
+                    class="min-h-[44px] rounded-full bg-brand px-5 py-2.5 font-heading text-sm font-semibold text-white transition duration-200 hover:bg-brand-hover focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-offset-2 focus-visible:outline-focus active:scale-95"
+                  >
+                    Забронювати
+                  </button>
+                </div>
+              </div>
+            </article>
+
+            <article
+              class="group flex flex-col overflow-hidden rounded-card bg-white shadow-card transition duration-300 hover:-translate-y-1 hover:shadow-floating"
+            >
+              <div class="relative overflow-hidden bg-cream-muted">
+                <img
+                  src="https://placehold.co/600x400?text=img&_=images/about.webp"
+                  alt="Гірське озеро в Альпах на листівці"
+                  width="341"
+                  height="256"
+                  loading="lazy"
+                  class="h-52 w-full object-cover transition duration-500 group-hover:scale-105"
+                />
+              </div>
+              <div class="flex flex-1 flex-col p-5">
+                <div class="flex items-start justify-between gap-3">
+                  <h3 class="font-heading text-lg font-bold">Альпи</h3>
+                  <p class="flex items-center gap-1 text-sm text-ink-muted">
+                    <i class="fa-solid fa-star text-rating" aria-hidden="true"></i>
+                    <span class="sr-only">Рейтинг:</span> 4.8
+                  </p>
+                </div>
+                <p class="mt-1 text-sm text-ink-muted">
+                  Австрія · гірські озера, канатні дороги та свіже повітря.
+                </p>
+                <ul class="mt-3 flex flex-wrap gap-2 text-xs text-ink-muted">
+                  <li class="rounded-full bg-cream px-3 py-1">
+                    <i class="fa-regular fa-clock mr-1" aria-hidden="true"></i>5 днів
+                  </li>
+                  <li class="rounded-full bg-cream px-3 py-1">
+                    <i class="fa-solid fa-plane mr-1" aria-hidden="true"></i>переліт + житло
+                  </li>
+                </ul>
+                <div class="mt-auto flex items-center justify-between gap-3 pt-5">
+                  <p class="font-heading text-xl font-bold text-brand-strong">
+                    <span class="text-sm font-medium text-ink-muted">від</span> 540 $
+                  </p>
+                  <button
+                    type="button"
+                    data-book
+                    aria-label="Забронювати тур до Альп"
+                    class="min-h-[44px] rounded-full bg-brand px-5 py-2.5 font-heading text-sm font-semibold text-white transition duration-200 hover:bg-brand-hover focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-offset-2 focus-visible:outline-focus active:scale-95"
+                  >
+                    Забронювати
+                  </button>
+                </div>
+              </div>
+            </article>
+          </div>
+        
+</div>
+</div>
+

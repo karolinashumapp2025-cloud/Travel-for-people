@@ -1,0 +1,935 @@
+:root {
+  /* --- Colors --- */
+  --color-primary: #67753a; /* кнопки, акценти (контраст з білим 5.0:1) */
+  --color-primary-hover: #556130;
+  --color-primary-strong: #596530; /* заголовки-акценти, фон футера */
+  --color-background: #f5f3e6; /* фон сторінки */
+  --color-surface: #ffffff; /* картки, шапка, форма */
+  --color-surface-muted: #efeddc; /* фон секції «Про нас», кружечки іконок */
+  --color-text: #28301c;
+  --color-text-muted: #63675a; /* другорядний текст (≥ 4.9:1 на світлих фонах) */
+  --color-text-inverse: #ffffff;
+  --color-text-inverse-muted: rgba(255, 255, 255, 0.85);
+  --color-border-inverse: rgba(255, 255, 255, 0.15);
+  --color-overlay: rgba(20, 24, 10, 0.6);
+  --color-rating: #f5b400;
+  --color-focus: #2f5dcc;
+
+  /* --- Typography --- */
+  --font-heading: "Poppins", "Segoe UI", Arial, sans-serif;
+  --font-body: "Inter", system-ui, "Segoe UI", Arial, sans-serif;
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  --font-weight-extrabold: 800;
+  --font-size-xs: 0.8rem;
+  --font-size-sm: 0.9rem;
+  --font-size-md: 1rem;
+  --font-size-lg: 1.15rem;
+  --font-size-xl: 1.3rem;
+  --font-size-2xl: 2rem;
+  --font-size-3xl: 3rem;
+  --line-height-tight: 1.2;
+  --line-height-base: 1.5;
+
+  /* --- Spacing --- */
+  --spacing-2xs: 4px;
+  --spacing-xs: 8px;
+  --spacing-sm: 12px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 32px;
+  --spacing-2xl: 48px;
+  --spacing-3xl: 80px;
+  --section-padding: 80px;
+
+  /* --- Border radius --- */
+  --radius-md: 18px;
+  --radius-lg: 28px;
+  --radius-round: 50%;
+  --radius-pill: 999px;
+
+  /* --- Shadows --- */
+  --shadow-header: 0 2px 12px rgba(0, 0, 0, 0.06);
+  --shadow-card: 0 10px 30px rgba(40, 48, 28, 0.07);
+  --shadow-floating: 0 20px 50px rgba(40, 48, 28, 0.18);
+
+  /* --- Container --- */
+  --container-width: 1240px;
+  --container-padding: 24px;
+  --header-height: 80px;
+
+  /* --- Transitions --- */
+  --transition-fast: 0.15s ease;
+
+  /* --- Icons --- */
+  --icon-size: 1.25rem;
+  --icon-color: var(--color-primary);
+}
+
+/* ===== 2. Reset & base ===== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: var(
+    --header-height
+  ); /* якорі не ховаються під sticky-шапкою */
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: var(--font-size-md);
+  line-height: var(--line-height-base);
+  color: var(--color-text);
+  background: var(--color-background);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  font-family: var(--font-heading);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-tight);
+}
+
+p,
+blockquote,
+dl,
+dd,
+address {
+  margin: 0;
+}
+
+address {
+  font-style: normal;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+input,
+button {
+  font: inherit;
+  color: inherit;
+}
+
+/* Видимий фокус для клавіатури (WCAG 2.4.7) */
+:focus-visible {
+  outline: 3px solid var(--color-focus);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  * {
+    transition: none !important;
+  }
+}
+
+/* ===== 3. Utilities ===== */
+.container {
+  width: 100%;
+  max-width: var(--container-width);
+  margin-inline: auto;
+  padding-inline: var(--container-padding);
+}
+
+.center {
+  text-align: center;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.skip-link {
+  position: absolute;
+  top: var(--spacing-xs);
+  left: var(--spacing-xs);
+  z-index: 100;
+  padding: var(--spacing-xs) var(--spacing-md);
+  background: var(--color-primary);
+  color: var(--color-text-inverse);
+  border-radius: var(--radius-pill);
+  transform: translateY(-200%);
+}
+.skip-link:focus {
+  transform: none;
+}
+
+.icon {
+  flex-shrink: 0;
+  font-size: var(--icon-size);
+  color: var(--icon-color);
+}
+
+/* ===== 4. Components ===== */
+
+/* --- Section headings --- */
+.section-title {
+  font-size: var(--font-size-2xl);
+}
+
+.section-subtitle {
+  margin-top: var(--spacing-sm);
+  color: var(--color-text-muted);
+  font-size: var(--font-size-lg);
+}
+
+/* --- Buttons --- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-xs);
+  padding: 14px 28px;
+  border: 1px solid transparent;
+  font-family: var(--font-heading);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  white-space: nowrap;
+  cursor: pointer;
+  transition:
+    transform var(--transition-fast),
+    background-color var(--transition-fast);
+}
+
+.btn-pill {
+  border-radius: var(--radius-pill);
+}
+
+.btn-primary {
+  background: var(--color-primary);
+  color: var(--color-text-inverse);
+}
+.btn-primary:hover {
+  background: var(--color-primary-hover);
+  transform: translateY(-1px);
+}
+
+.btn-outline {
+  background: rgba(255, 255, 255, 0.85);
+  border-color: var(--color-surface);
+  color: var(--color-primary-strong);
+}
+.btn-outline:hover {
+  background: var(--color-surface);
+}
+
+/* --- Logo --- */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+  font-family: var(--font-heading);
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-primary-strong);
+}
+
+.logo-mark {
+  width: 34px;
+  height: 34px;
+  object-fit: contain;
+}
+
+.logo-inverse {
+  color: var(--color-text-inverse);
+}
+.logo-inverse .logo-mark {
+  width: 30px;
+  height: 30px;
+  filter: brightness(0) invert(1);
+}
+
+/* --- Cards (спільна база для карток) --- */
+.feature-card,
+.destination-card,
+.testimonial {
+  background: var(--color-surface);
+  box-shadow: var(--shadow-card);
+}
+
+/* ===== 5. Sections ===== */
+
+/* --- Header (Flexbox) --- */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: var(--color-surface);
+  box-shadow: var(--shadow-header);
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spacing-lg);
+  min-height: var(--header-height);
+}
+
+.main-nav ul {
+  display: flex;
+  gap: var(--spacing-xl);
+}
+
+.main-nav a {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+}
+.main-nav a:hover {
+  color: var(--color-primary);
+}
+
+/* --- Hero --- */
+.hero {
+  position: relative;
+  padding-top: var(--spacing-2xl);
+}
+
+.hero-photo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero-inner {
+  position: relative;
+}
+
+.hero-copy {
+  max-width: 640px;
+  padding: 40px 0 180px;
+}
+
+.hero-copy h1 {
+  font-size: var(--font-size-3xl);
+  font-weight: var(--font-weight-extrabold);
+  color: var(--color-primary-strong);
+}
+
+.hero-lead {
+  margin-top: 14px;
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-semibold);
+}
+
+.hero-text {
+  max-width: 540px;
+  margin-top: 14px;
+  color: var(--color-text-muted);
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 28px;
+}
+
+/* --- Search widget (Flexbox) --- */
+.search-widget {
+  position: relative;
+  margin-top: -90px;
+}
+
+.search-card {
+  padding: var(--spacing-xl) 36px 36px;
+  background: var(--color-surface);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-floating);
+}
+
+.search-title {
+  margin-bottom: 22px;
+  font-size: 1.4rem;
+}
+
+.search-form {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--spacing-md);
+}
+
+.search-field {
+  display: flex;
+  flex: 1 1 200px;
+  align-items: center;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-sm) var(--spacing-md);
+  background: var(--color-background);
+  border-radius: var(--radius-md);
+  cursor: text;
+}
+
+/* Фокус показуємо на всьому полі, а не тільки на input */
+.search-field:focus-within {
+  outline: 3px solid var(--color-focus);
+  outline-offset: 2px;
+}
+
+.field-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+  flex: 1;
+}
+
+.field-label {
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-muted);
+}
+
+.field-text input {
+  width: 100%;
+  padding: 0;
+  border: none;
+  background: transparent;
+  font-size: var(--font-size-sm);
+}
+.field-text input:focus {
+  outline: none;
+} /* компенсовано :focus-within на .search-field */
+.field-text input::placeholder {
+  color: var(--color-text-muted);
+}
+
+/* --- Services (CSS Grid з minmax) --- */
+.services {
+  padding-top: 150px;
+}
+
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 28px;
+  margin-top: var(--spacing-2xl);
+}
+
+.feature-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+  padding: var(--spacing-xl) 28px 36px;
+  border-radius: var(--radius-lg);
+}
+
+.feature-icon {
+  width: 72px;
+  height: 72px;
+  margin-bottom: var(--spacing-sm);
+}
+
+.feature-card h3 {
+  font-size: var(--font-size-xl);
+}
+
+.feature-card p {
+  max-width: 85%;
+  color: var(--color-text-muted);
+}
+
+.arrow-link {
+  position: absolute;
+  right: 28px;
+  bottom: 28px;
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-round);
+  transition: transform var(--transition-fast);
+}
+.arrow-link:hover {
+  transform: translateX(3px);
+}
+
+.arrow-ring {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.arrow-glyph {
+  position: absolute;
+  top: 50%;
+  left: 52%;
+  width: 46%;
+  height: 46%;
+  transform: translate(-50%, -50%);
+}
+
+/* --- Advantages (Grid) --- */
+.advantages {
+  padding-top: 90px;
+}
+
+.advantages-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: var(--spacing-lg);
+  margin-top: 44px;
+  text-align: center;
+}
+
+.advantage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+.advantage-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 64px;
+  height: 64px;
+  margin-bottom: var(--spacing-xs);
+  border-radius: var(--radius-round);
+  background: var(--color-surface-muted);
+  color: var(--color-primary);
+  font-size: 1.6rem;
+}
+
+.advantage h3 {
+  font-size: var(--font-size-lg);
+}
+
+.advantage p {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+}
+
+/* --- Destinations (Grid) --- */
+.destinations {
+  padding: 90px 0 var(--section-padding);
+}
+
+.destinations-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 22px;
+  margin-top: 44px;
+}
+
+.destination-card {
+  overflow: hidden;
+  border-radius: var(--radius-md);
+}
+
+.destination-card img {
+  width: 100%;
+  height: 190px;
+  object-fit: cover;
+}
+
+.destination-caption {
+  padding: 14px var(--spacing-md) 18px;
+}
+
+.destination-caption h3 {
+  margin-bottom: 2px;
+  font-size: var(--font-size-lg);
+}
+
+.destination-caption p {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+}
+
+/* --- About + Contacts (Grid) --- */
+.about-band {
+  padding: 70px 0;
+  background: var(--color-surface-muted);
+}
+
+.about-inner {
+  display: grid;
+  grid-template-columns: 2.2fr 0.9fr;
+  gap: 40px;
+  align-items: start;
+}
+
+.about {
+  display: grid;
+  grid-template-columns: 1.3fr 0.9fr;
+  gap: 40px;
+  align-items: start;
+}
+
+.about-copy p {
+  max-width: 540px;
+  margin-top: var(--spacing-md);
+  color: var(--color-text-muted);
+}
+
+.about-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-xl);
+  margin-top: 28px;
+}
+
+/* У розмітці dt іде першим, візуально число показуємо зверху */
+.stat {
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+.stat dt {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+}
+
+.stat dd {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  font-weight: var(--font-weight-extrabold);
+  color: var(--color-primary-strong);
+}
+
+.about-photo {
+  width: 100%;
+  border-radius: var(--radius-lg);
+  object-fit: cover;
+}
+
+.contacts-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+  margin-top: 18px;
+}
+
+.contacts-list li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.contacts-list a {
+  font-weight: var(--font-weight-medium);
+}
+.contacts-list a:hover {
+  color: var(--color-primary);
+}
+
+/* --- Testimonials (Grid + Flexbox у картці) --- */
+.testimonials {
+  padding: var(--section-padding) 0;
+}
+
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--spacing-lg);
+  margin-top: 44px;
+}
+
+.testimonial {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  gap: var(--spacing-md);
+  height: 100%;
+  padding: var(--spacing-lg);
+  border-radius: var(--radius-md);
+}
+
+.testimonial-avatar {
+  flex-shrink: 0;
+  width: 64px;
+  height: 64px;
+  border-radius: var(--radius-round);
+  object-fit: cover;
+}
+
+.testimonial-body {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.testimonial h3 {
+  font-size: var(--font-size-lg);
+}
+
+.rating {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+}
+
+.rating-stars i {
+  color: var(--color-rating);
+}
+
+.testimonial blockquote p {
+  font-size: 0.95rem;
+}
+
+.testimonial-quote {
+  position: absolute;
+  top: var(--spacing-lg);
+  right: var(--spacing-lg);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-round);
+  background: var(--color-surface-muted);
+  color: var(--color-primary);
+}
+
+/* --- CTA --- */
+.cta {
+  padding-bottom: 60px;
+}
+
+.cta-banner {
+  position: relative;
+  overflow: hidden;
+  padding: 90px var(--spacing-2xl);
+  border-radius: var(--radius-lg);
+}
+
+.cta-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Затемнення фону, щоб білий текст мав достатній контраст */
+.cta-banner::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(
+    90deg,
+    var(--color-overlay) 0%,
+    rgba(20, 24, 10, 0.15) 70%
+  );
+}
+
+.cta-inner {
+  position: relative;
+  z-index: 2;
+  max-width: 620px;
+}
+
+.cta h2 {
+  font-size: 2.1rem;
+  font-weight: var(--font-weight-extrabold);
+  color: var(--color-text-inverse);
+}
+
+.cta p {
+  margin-top: var(--spacing-sm);
+  font-size: var(--font-size-lg);
+  color: var(--color-text-inverse-muted);
+}
+
+.cta .btn {
+  margin-top: 26px;
+}
+
+/* --- Footer (Grid + Flexbox) --- */
+.site-footer {
+  padding-top: 60px;
+  background: var(--color-primary-strong);
+  color: var(--color-text-inverse-muted);
+}
+
+.footer-inner {
+  display: grid;
+  grid-template-columns: 1.4fr repeat(3, minmax(0, 1fr));
+  gap: var(--spacing-xl);
+  padding-bottom: 40px;
+  border-bottom: 1px solid var(--color-border-inverse);
+}
+
+.footer-brand p {
+  margin-top: var(--spacing-xs);
+  font-size: var(--font-size-sm);
+}
+
+.footer-title {
+  margin-bottom: var(--spacing-md);
+  font-size: var(--font-size-md);
+  color: var(--color-text-inverse);
+}
+
+.footer-col ul {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.footer-col a {
+  font-size: var(--font-size-sm);
+}
+.footer-col a:hover {
+  color: var(--color-text-inverse);
+}
+
+.social-list a {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+}
+.social-list .icon {
+  --icon-color: currentColor;
+}
+
+.footer-bottom {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 10px;
+  padding-block: 22px;
+  font-size: var(--font-size-sm);
+}
+
+/* ===== 6. Responsive (базова перевірка; повноцінно — у ЛР №6) ===== */
+@media (max-width: 1080px) {
+  .about-inner {
+    grid-template-columns: 1fr;
+  }
+  .about-photo {
+    max-width: 420px;
+  }
+  .advantages-grid,
+  .destinations-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 860px) {
+  /* Меню не ховаємо: переносимо його окремим рядком під логотип */
+  .header-inner {
+    flex-wrap: wrap;
+    row-gap: var(--spacing-xs);
+    padding-block: var(--spacing-sm);
+  }
+  .main-nav {
+    order: 3;
+    width: 100%;
+  }
+  .main-nav ul {
+    flex-wrap: wrap;
+    column-gap: var(--spacing-lg);
+    row-gap: var(--spacing-2xs);
+  }
+  .main-nav a {
+    display: block;
+    padding-block: var(--spacing-2xs);
+  }
+  .header-cta {
+    padding: 10px 18px;
+  }
+
+  :root {
+    --header-height: 120px;
+  }
+
+  .hero-photo {
+    opacity: 0.35;
+  } /* фон не заважає читати текст */
+  .hero-copy h1 {
+    font-size: 2.3rem;
+  }
+  .search-widget {
+    margin-top: -50px;
+  }
+  .search-form {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .search-field {
+    flex-basis: auto;
+  }
+  .about {
+    grid-template-columns: 1fr;
+  }
+  .footer-inner {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 560px) {
+  :root {
+    --container-padding: 16px;
+    --section-padding: 56px;
+    --header-height: 100px;
+  }
+  .header-cta {
+    display: none;
+  } /* дублює кнопку в Hero */
+  .advantages-grid,
+  .destinations-grid,
+  .footer-inner {
+    grid-template-columns: 1fr;
+  }
+  .hero-copy {
+    padding-bottom: 140px;
+  }
+  .search-card {
+    padding: var(--spacing-lg) 20px;
+  }
+  .testimonials-grid {
+    grid-template-columns: 1fr;
+  }
+  .cta-banner {
+    padding: 60px var(--spacing-lg);
+  }
+  .section-title {
+    font-size: 1.7rem;
+  }
+}

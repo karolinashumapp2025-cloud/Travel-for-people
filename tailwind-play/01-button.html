@@ -1,0 +1,30 @@
+<!-- Етап 4–5: Primary CTA Button. Вставити в HTML-панель Tailwind Play -->
+<div class="flex min-h-screen flex-wrap items-center justify-center gap-6 bg-slate-50 p-8">
+  <!-- 1. Базовий приклад з методички -->
+  <button class="rounded-lg bg-blue-600 px-6 py-3 text-white">Замовити</button>
+
+  <!-- 2. Згенерована Primary CTA Button -->
+  <button
+    type="button"
+    class="inline-flex min-h-[44px] items-center justify-center rounded-lg bg-[#2563EB] px-6 py-3 text-base font-semibold text-white transition-colors duration-200 hover:bg-blue-700 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-blue-300 active:bg-blue-800 disabled:cursor-not-allowed disabled:opacity-50"
+  >
+    Дізнатися більше
+  </button>
+
+  <!-- 3. Disabled-стан -->
+  <button
+    type="button"
+    disabled
+    class="inline-flex min-h-[44px] items-center justify-center rounded-lg bg-[#2563EB] px-6 py-3 text-base font-semibold text-white transition-colors duration-200 hover:bg-blue-700 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-blue-300 active:bg-blue-800 disabled:cursor-not-allowed disabled:opacity-50"
+  >
+    Дізнатися більше
+  </button>
+
+  <!-- 4. Самостійно змінені 4 параметри: bg-*, px-*, rounded-*, hover:* (стиль бренду Travel for people) -->
+  <button
+    type="button"
+    class="inline-flex min-h-[44px] items-center justify-center gap-2 rounded-full bg-[#67753a] px-8 py-3 text-base font-semibold text-white transition duration-200 hover:-translate-y-0.5 hover:bg-[#556130] focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#67753a]/40 active:translate-y-0 disabled:cursor-not-allowed disabled:opacity-50"
+  >
+    Знайти подорож →
+  </button>
+</div>

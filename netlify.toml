@@ -1,0 +1,11 @@
+# Налаштування публікації Travel for people на Netlify.
+# Сайт статичний (HTML + Tailwind CDN + CSS), npm-залежностей немає:
+# «збірка» лише копіює файли сайту в dist/, щоб звітні скриншоти
+# та службові файли не потрапили на публічний сайт.
+
+[build]
+  command = "node scripts/build.mjs"
+  publish = "dist"
+
+[build.environment]
+  NODE_VERSION = "22"
