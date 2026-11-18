@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Реєстрація — Travel for people</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body class="min-h-screen bg-slate-100 text-slate-900 antialiased">
+
+  <main class="flex min-h-screen items-center justify-center px-4 py-8 md:py-16">
+    <section aria-labelledby="feedback-title" class="mx-auto w-full max-w-2xl rounded-2xl bg-white p-5 shadow-lg shadow-slate-200/60 ring-1 ring-slate-200 md:p-10">
+
+      <header class="mb-6 md:mb-8">
+        <a
+          href="../index.html"
+          class="mb-4 inline-flex min-h-[44px] items-center gap-2 rounded-lg text-sm font-medium text-sky-700 hover:text-sky-900 focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-600 focus-visible:ring-offset-2"
+        >
+          <span aria-hidden="true">←</span> На головну
+        </a>
+        <h1 id="feedback-title" class="text-2xl font-bold tracking-tight md:text-3xl">Реєстрація</h1>
+        <p class="mt-2 text-base text-slate-600">Залиште свої дані, і ми зв'яжемося з вами, щоб підібрати подорож.</p>
+        <p class="mt-2 text-sm text-slate-600">* — обов'язкові поля</p>
+      </header>
+
+      <!--
+        Стани полів (перемикаються атрибутами, без зміни класів):
+          normal  — без атрибутів
+          focus   — :focus-visible
+          error   — aria-invalid="true"
+          success — data-state="success"
+      -->
+      <form id="feedbackForm" action="#" method="post" novalidate class="space-y-5">
+
+        <div class="grid grid-cols-1 gap-5 md:grid-cols-2">
+          <!-- Ім'я -->
+          <div>
+            <label for="username" class="mb-1.5 block text-sm font-medium text-slate-800">Ім'я <span class="text-red-600" aria-hidden="true">*</span></label>
+            <input
+              type="text"
+              id="username"
+              name="username"
+              autocomplete="name"
+              autocapitalize="words"
+              enterkeyhint="next"
+              minlength="2"
+              maxlength="50"
+              required
+              aria-describedby="username-error"
+              class="block min-h-[48px] w-full rounded-xl border border-slate-300 bg-white px-4 py-3 text-base text-slate-900 shadow-sm transition duration-150
+                     hover:border-slate-400
+                     focus:outline-none focus-visible:border-sky-500 focus-visible:ring-4 focus-visible:ring-sky-500/20
+                     aria-[invalid=true]:border-red-500 aria-[invalid=true]:bg-red-50 aria-[invalid=true]:hover:border-red-600 aria-[invalid=true]:focus-visible:border-red-500 aria-[invalid=true]:focus-visible:ring-red-500/20
+                     data-[state=success]:border-emerald-500 data-[state=success]:hover:border-emerald-600 data-[state=success]:focus-visible:border-emerald-500 data-[state=success]:focus-visible:ring-emerald-500/20"
+            >
+            <p id="username-error" class="mt-1.5 min-h-[1.25rem] text-sm text-red-600" aria-live="polite"></p>
+          </div>
+
+          <!-- Email -->
+          <div>
+            <label for="email" class="mb-1.5 block text-sm font-medium text-slate-800">Email <span class="text-red-600" aria-hidden="true">*</span></label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              autocomplete="email"
+              inputmode="email"
+              autocapitalize="off"
+              spellcheck="false"
+              enterkeyhint="next"
+              maxlength="254"
+              required
+              aria-describedby="email-error"
+              class="block min-h-[48px] w-full rounded-xl border border-slate-300 bg-white px-4 py-3 text-base text-slate-900 shadow-sm transition duration-150
+                     hover:border-slate-400
+                     focus:outline-none focus-visible:border-sky-500 focus-visible:ring-4 focus-visible:ring-sky-500/20
+                     aria-[invalid=true]:border-red-500 aria-[invalid=true]:bg-red-50 aria-[invalid=true]:hover:border-red-600 aria-[invalid=true]:focus-visible:border-red-500 aria-[invalid=true]:focus-visible:ring-red-500/20
+                     data-[state=success]:border-emerald-500 data-[state=success]:hover:border-emerald-600 data-[state=success]:focus-visible:border-emerald-500 data-[state=success]:focus-visible:ring-emerald-500/20"
+            >
+            <p id="email-error" class="mt-1.5 min-h-[1.25rem] text-sm text-red-600" aria-live="polite"></p>
+          </div>
+        </div>
+
+        <!-- Телефон -->
+        <div>
+          <label for="phone" class="mb-1.5 block text-sm font-medium text-slate-800">Телефон <span class="text-red-600" aria-hidden="true">*</span></label>
+          <input
+            type="tel"
+            id="phone"
+            name="phone"
+            autocomplete="tel"
+            inputmode="tel"
+            enterkeyhint="next"
+            required
+            aria-describedby="phone-hint phone-error"
+            class="block min-h-[48px] w-full rounded-xl border border-slate-300 bg-white px-4 py-3 text-base text-slate-900 shadow-sm transition duration-150
+                   hover:border-slate-400
+                   focus:outline-none focus-visible:border-sky-500 focus-visible:ring-4 focus-visible:ring-sky-500/20
+                   aria-[invalid=true]:border-red-500 aria-[invalid=true]:bg-red-50 aria-[invalid=true]:hover:border-red-600 aria-[invalid=true]:focus-visible:border-red-500 aria-[invalid=true]:focus-visible:ring-red-500/20
+                   data-[state=success]:border-emerald-500 data-[state=success]:hover:border-emerald-600 data-[state=success]:focus-visible:border-emerald-500 data-[state=success]:focus-visible:ring-emerald-500/20"
+          >
+          <p id="phone-hint" class="mt-1.5 text-xs text-slate-500">Наприклад: +380501234567</p>
+          <p id="phone-error" class="mt-1 min-h-[1.25rem] text-sm text-red-600" aria-live="polite"></p>
+        </div>
+
+        <!-- Повідомлення -->
+        <div>
+          <label for="message" class="mb-1.5 block text-sm font-medium text-slate-800">Повідомлення <span class="text-red-600" aria-hidden="true">*</span></label>
+          <textarea
+            id="message"
+            name="message"
+            rows="4"
+            minlength="10"
+            maxlength="1000"
+            required
+            aria-describedby="message-counter message-error"
+            class="block min-h-[120px] w-full resize-none rounded-xl border border-slate-300 bg-white px-4 py-3 text-base text-slate-900 shadow-sm transition duration-150
+                   hover:border-slate-400
+                   focus:outline-none focus-visible:border-sky-500 focus-visible:ring-4 focus-visible:ring-sky-500/20
+                   aria-[invalid=true]:border-red-500 aria-[invalid=true]:bg-red-50 aria-[invalid=true]:hover:border-red-600 aria-[invalid=true]:focus-visible:border-red-500 aria-[invalid=true]:focus-visible:ring-red-500/20
+                   data-[state=success]:border-emerald-500 data-[state=success]:hover:border-emerald-600 data-[state=success]:focus-visible:border-emerald-500 data-[state=success]:focus-visible:ring-emerald-500/20"
+          ></textarea>
+          <div class="mt-1.5 flex justify-between gap-3 text-sm">
+            <p id="message-error" class="min-h-[1.25rem] text-red-600" aria-live="polite"></p>
+            <p id="message-counter" class="shrink-0 tabular-nums text-slate-500"><span>0</span> / 1000</p>
+          </div>
+        </div>
+
+        <!-- Згода -->
+        <div>
+          <div class="flex min-h-[44px] items-start gap-3">
+            <input
+              type="checkbox"
+              id="agreement"
+              name="agreement"
+              value="yes"
+              required
+              aria-describedby="agreement-error"
+              class="mt-0.5 h-6 w-6 shrink-0 cursor-pointer rounded-md border-slate-300 accent-sky-600 transition
+                     hover:ring-4 hover:ring-slate-200
+                     focus:outline-none focus-visible:ring-4 focus-visible:ring-sky-500/30
+                     aria-[invalid=true]:ring-2 aria-[invalid=true]:ring-red-500"
+            >
+            <label for="agreement" class="cursor-pointer py-0.5 text-sm leading-6 text-slate-700">
+              Я погоджуюсь з
+              <a href="/privacy" target="_blank" rel="noopener" class="rounded font-medium text-sky-700 underline underline-offset-2 hover:text-sky-900 focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-500">політикою конфіденційності</a>
+              <span class="text-red-600" aria-hidden="true">*</span>
+            </label>
+          </div>
+          <p id="agreement-error" class="mt-1 min-h-[1.25rem] text-sm text-red-600" aria-live="polite"></p>
+        </div>
+
+        <!-- Помилка сервера -->
+        <div id="form-status" role="alert" class="hidden rounded-xl border border-red-200 bg-red-50 p-4 text-sm text-red-700"></div>
+
+        <!-- Кнопка -->
+        <button
+          type="submit"
+          id="submit-btn"
+          class="inline-flex min-h-[52px] w-full items-center justify-center gap-2 rounded-xl bg-sky-600 px-8 py-3 text-base font-semibold text-white shadow-md shadow-sky-600/20 transition duration-150
+                 hover:bg-sky-700
+                 active:scale-[0.98] active:bg-sky-800
+                 focus:outline-none focus-visible:ring-4 focus-visible:ring-sky-500/40 focus-visible:ring-offset-2
+                 disabled:cursor-not-allowed disabled:opacity-60 disabled:active:scale-100
+                 md:w-auto"
+        >
+          Надіслати
+        </button>
+
+      </form>
+    </section>
+  </main>
+
+  <!--
+    Модальне вікно успішної відправки.
+    Нативний <dialog> + showModal(): фокус-пастка, Escape, role="dialog" і aria-modal браузер дає сам.
+  -->
+  <dialog
+    id="successModal"
+    aria-labelledby="successModalTitle"
+    aria-describedby="successModalText"
+    class="fixed inset-0 m-auto w-[calc(100%-2rem)] max-w-md rounded-2xl bg-white p-0 text-slate-900 shadow-2xl
+           backdrop:bg-slate-900/60 backdrop:backdrop-blur-sm"
+  >
+    <div class="p-6 text-center md:p-8">
+      <div class="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-emerald-100" aria-hidden="true">
+        <svg class="h-7 w-7 text-emerald-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M5 13l4 4L19 7" />
+        </svg>
+      </div>
+
+      <h2 id="successModalTitle" class="text-xl font-bold tracking-tight md:text-2xl">Дякуємо за реєстрацію!</h2>
+      <p id="successModalText" class="mt-2 text-base text-slate-600">Ми зв'яжемося з вами протягом 24 годин.</p>
+
+      <button
+        type="button"
+        id="successModalClose"
+        class="mt-6 inline-flex min-h-[48px] w-full items-center justify-center rounded-xl bg-sky-600 px-6 py-3 text-base font-semibold text-white transition duration-150
+               hover:bg-sky-700 active:bg-sky-800
+               focus:outline-none focus-visible:ring-4 focus-visible:ring-sky-500/40 focus-visible:ring-offset-2"
+      >
+        Закрити
+      </button>
+    </div>
+  </dialog>
+
+  <script src="assets/js/validation.js" defer></script>
+</body>
+</html>

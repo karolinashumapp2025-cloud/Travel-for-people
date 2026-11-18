@@ -4,7 +4,7 @@
 import { cpSync, rmSync } from "node:fs";
 
 const OUT_DIR = "dist";
-const SITE_FILES = ["index.html", "css", "assets"];
+const SITE_FILES = ["index.html", "css", "assets", "feedback-form"];
 
 rmSync(OUT_DIR, { recursive: true, force: true });
 for (const file of SITE_FILES) {
