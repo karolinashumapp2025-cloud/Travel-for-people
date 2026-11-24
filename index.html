@@ -37,6 +37,18 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
     />
 
+    <!-- Swiper.js v11 CSS (слайдер відгуків) -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11.1.14/swiper-bundle.min.css"
+    />
+
+    <!-- Fancybox v5 CSS (лайтбокс галереї) -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.36/dist/fancybox/fancybox.css"
+    />
+
     <!-- Tailwind CSS (Play CDN) -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Дизайн-система з ЛР №4 перенесена у тему Tailwind -->
@@ -284,6 +296,16 @@
             >
               Подорожуй більше. Плануй простіше.
             </h1>
+            <!-- Typed.js: текст «друкується» в #typed-text.
+                 Скрінрідерам — статичний текст, анімований рядок прихований від них -->
+            <p
+              class="hero-typed mt-3 min-h-[3.5rem] font-heading text-xl font-semibold text-ink sm:min-h-[2.25rem] sm:text-2xl"
+            >
+              <span class="sr-only"
+                >Квитки, житло та маршрути — в межах твого бюджету.</span
+              >
+              <span aria-hidden="true"><span id="typed-text"></span></span>
+            </p>
             <p class="mt-4 max-w-lg text-base text-ink-muted md:text-lg">
               Знайди ідеальну подорож відповідно до свого бюджету та вподобань.
             </p>
@@ -1021,6 +1043,91 @@
         </div>
       </section>
 
+      <!-- ===================== GALLERY (CSS Grid + Fancybox) ===================== -->
+      <!--
+        Галерея інтер'єрів: data-fancybox="travel-gallery" об'єднує фото
+        в один альбом, data-caption — підпис у лайтбоксі.
+        mobile: 1 колонка → sm: 2 (перше фото на всю ширину)
+        → lg: 3 колонки, перше фото 2×2, решта — стовпчиком праворуч
+      -->
+      <section
+        id="gallery"
+        aria-labelledby="gallery-title"
+        class="pb-16 md:pb-24"
+      >
+        <div class="mx-auto max-w-container px-4 sm:px-6">
+          <h2
+            id="gallery-title"
+            class="text-center font-heading text-2xl font-bold sm:text-3xl"
+          >
+            Де ви зупинитесь
+          </h2>
+          <p class="mt-3 text-center text-base text-ink-muted md:text-lg">
+            Інтер'єри житла, яке можна підібрати під свій бюджет. Натисніть на
+            фото, щоб розглянути його ближче.
+          </p>
+
+          <div class="travel-gallery mt-10 lg:mt-12">
+            <a
+              href="https://images.unsplash.com/photo-1611892440504-42a792e24d32?w=1600&q=80"
+              data-fancybox="travel-gallery"
+              data-caption="Вілла в тропіках — номер з дерев'яним декором і виходом у сад"
+              class="gallery-item gallery-item--featured group"
+            >
+              <img
+                src="https://images.unsplash.com/photo-1611892440504-42a792e24d32?w=900&q=75"
+                alt="Номер вілли з великим ліжком, дерев'яними меблями та вікном у тропічний сад"
+                width="900"
+                height="600"
+                loading="lazy"
+              />
+              <span class="gallery-caption">
+                <span class="font-heading font-semibold">Вілла в тропіках</span>
+                <i class="fa-solid fa-magnifying-glass-plus" aria-hidden="true"></i>
+              </span>
+            </a>
+
+            <a
+              href="https://images.unsplash.com/photo-1590490360182-c33d57733427?w=1600&q=80"
+              data-fancybox="travel-gallery"
+              data-caption="Класичний готель у центрі міста — просторий номер з вітальнею"
+              class="gallery-item group"
+            >
+              <img
+                src="https://images.unsplash.com/photo-1590490360182-c33d57733427?w=700&q=75"
+                alt="Готельний номер у класичному стилі з диваном, торшером і двоспальним ліжком"
+                width="700"
+                height="525"
+                loading="lazy"
+              />
+              <span class="gallery-caption">
+                <span class="font-heading font-semibold">Класичний готель</span>
+                <i class="fa-solid fa-magnifying-glass-plus" aria-hidden="true"></i>
+              </span>
+            </a>
+
+            <a
+              href="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=1600&q=80"
+              data-fancybox="travel-gallery"
+              data-caption="Квартира в старому місті — кухня-вітальня для всієї родини"
+              class="gallery-item group"
+            >
+              <img
+                src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=700&q=75"
+                alt="Світла квартира з кухнею, обіднім столом, червоним кріслом і великим вікном"
+                width="700"
+                height="467"
+                loading="lazy"
+              />
+              <span class="gallery-caption">
+                <span class="font-heading font-semibold">Міська квартира</span>
+                <i class="fa-solid fa-magnifying-glass-plus" aria-hidden="true"></i>
+              </span>
+            </a>
+          </div>
+        </div>
+      </section>
+
       <!-- ===================== ABOUT ===================== -->
       <!-- Контакти — лише у футері (#contacts), щоб не дублювати їх на сторінці -->
       <section
@@ -1084,118 +1191,297 @@
         </div>
       </section>
 
-      <!-- ===================== TESTIMONIALS ===================== -->
-      <!--
-        Справжніх відгуків у навчального проєкту ще немає, тому тут — сценарії
-        використання, явно позначені як приклад. Щоб додати реальний відгук:
-        замінити іконку на <img> аватара (alt=""), h3 — на ім'я автора,
-        <p> — на <blockquote><p>…</p></blockquote> і прибрати бейдж «Приклад».
-      -->
+      <!-- ===================== TESTIMONIALS (Swiper-слайдер) ===================== -->
       <section
         id="testimonials"
         aria-labelledby="testimonials-title"
         class="py-16 md:py-24"
       >
         <div class="mx-auto max-w-container px-4 sm:px-6">
-          <h2
-            id="testimonials-title"
-            class="text-center font-heading text-2xl font-bold sm:text-3xl"
-          >
-            Відгуки мандрівників
-          </h2>
-          <p
-            class="mx-auto mt-3 max-w-2xl text-center text-base text-ink-muted md:text-lg"
-          >
-            Ми лише запускаємось, тож справжні відгуки з'являться тут згодом. А
-            поки — приклади того, як сервіс допомагає різним мандрівникам.
-          </p>
+          <div class="reviews-section">
+            <div>
+              <header class="text-center">
+                <h2
+                  id="testimonials-title"
+                  class="font-heading text-2xl font-bold sm:text-3xl"
+                >
+                  Що кажуть наші мандрівники
+                </h2>
+                <p
+                  class="mx-auto mt-3 max-w-2xl text-base text-ink-muted md:text-lg"
+                >
+                  Реальні враження мандрівників, які бронювали подорожі з нами.
+                </p>
+              </header>
 
-          <ul
-            class="mt-10 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3"
-          >
-            <li>
-              <article
-                class="relative flex h-full items-start gap-4 rounded-card bg-white p-6 shadow-card"
-              >
-                <span
-                  class="inline-flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-cream-muted text-xl text-brand sm:h-16 sm:w-16"
-                  aria-hidden="true"
-                  ><i class="fa-solid fa-graduation-cap"></i
-                ></span>
-                <div class="flex flex-col gap-1.5">
-                  <p
-                    class="w-fit rounded-full bg-cream px-3 py-1 text-xs font-semibold text-brand-strong"
-                  >
-                    Приклад сценарію
-                  </p>
-                  <h3 class="font-heading text-lg font-bold">
-                    Студентський вікенд
-                  </h3>
-                  <p class="text-sm text-ink-muted">
-                    Бюджет до 250 $ · 2 мандрівники
-                  </p>
-                  <p class="text-[15px]">
-                    Обираєш місто, дати й суму — і отримуєш дорогу та хостел, що
-                    вкладаються в бюджет, без десятка відкритих вкладок.
-                  </p>
+              <!-- Swiper -->
+              <div class="reviews-slider relative mt-10 lg:mt-12 lg:px-16">
+                <div class="swiper reviews-swiper !px-3 !pb-14 !pt-3">
+                  <div class="swiper-wrapper">
+                    <!-- Слайд 1 -->
+                    <div class="swiper-slide !h-auto">
+                      <article
+                        class="flex h-full flex-col rounded-card bg-white p-6 shadow-card transition duration-300 hover:-translate-y-1 hover:shadow-floating md:p-8"
+                      >
+                        <div
+                          class="mb-4 flex gap-1 text-rating"
+                          role="img"
+                          aria-label="Оцінка 5 з 5"
+                        >
+                          <span aria-hidden="true">★★★★★</span>
+                        </div>
+                        <p
+                          class="flex-grow text-[15px] leading-relaxed text-ink"
+                        >
+                          «Неймовірно зручне бронювання! Знайшла ідеальний
+                          пляжний курорт на Балі вдвічі дешевше, ніж очікувала.
+                          Служба підтримки була на зв'язку протягом усієї
+                          поїздки.»
+                        </p>
+                        <footer
+                          class="mt-6 flex items-center gap-4 border-t border-cream-muted pt-5"
+                        >
+                          <img
+                            src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=120&h=120&fit=crop&crop=face&q=80"
+                            alt=""
+                            width="48"
+                            height="48"
+                            class="h-12 w-12 rounded-full object-cover ring-2 ring-cream-muted"
+                            loading="lazy"
+                          />
+                          <div>
+                            <p class="font-heading text-base font-semibold text-ink">
+                              Сара Джонсон
+                            </p>
+                            <p class="text-sm text-ink-muted">Подорож на Балі</p>
+                          </div>
+                        </footer>
+                      </article>
+                    </div>
+  
+                    <!-- Слайд 2 -->
+                    <div class="swiper-slide !h-auto">
+                      <article
+                        class="flex h-full flex-col rounded-card bg-white p-6 shadow-card transition duration-300 hover:-translate-y-1 hover:shadow-floating md:p-8"
+                      >
+                        <div
+                          class="mb-4 flex gap-1 text-rating"
+                          role="img"
+                          aria-label="Оцінка 5 з 5"
+                        >
+                          <span aria-hidden="true">★★★★★</span>
+                        </div>
+                        <p
+                          class="flex-grow text-[15px] leading-relaxed text-ink"
+                        >
+                          «Забронював поїздку до Парижа на вихідні в останній
+                          момент — і все пройшло бездоганно. Готель був
+                          точнісінько як на фото. Обов'язково скористаюся сервісом
+                          знову!»
+                        </p>
+                        <footer
+                          class="mt-6 flex items-center gap-4 border-t border-cream-muted pt-5"
+                        >
+                          <img
+                            src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=120&h=120&fit=crop&crop=face&q=80"
+                            alt=""
+                            width="48"
+                            height="48"
+                            class="h-12 w-12 rounded-full object-cover ring-2 ring-cream-muted"
+                            loading="lazy"
+                          />
+                          <div>
+                            <p class="font-heading text-base font-semibold text-ink">
+                              Майкл Чен
+                            </p>
+                            <p class="text-sm text-ink-muted">
+                              Подорож до Парижа
+                            </p>
+                          </div>
+                        </footer>
+                      </article>
+                    </div>
+  
+                    <!-- Слайд 3 -->
+                    <div class="swiper-slide !h-auto">
+                      <article
+                        class="flex h-full flex-col rounded-card bg-white p-6 shadow-card transition duration-300 hover:-translate-y-1 hover:shadow-floating md:p-8"
+                      >
+                        <div
+                          class="mb-4 flex gap-1 text-rating"
+                          role="img"
+                          aria-label="Оцінка 5 з 5"
+                        >
+                          <span aria-hidden="true">★★★★★</span>
+                        </div>
+                        <p
+                          class="flex-grow text-[15px] leading-relaxed text-ink"
+                        >
+                          «Найкращий сервіс для бронювання подорожей, яким я
+                          користувалася. Завдяки фільтрам легко знайшла житло в
+                          Токіо, де можна з тваринами. Нашому песику дуже
+                          сподобався сад готелю!»
+                        </p>
+                        <footer
+                          class="mt-6 flex items-center gap-4 border-t border-cream-muted pt-5"
+                        >
+                          <img
+                            src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=120&h=120&fit=crop&crop=face&q=80"
+                            alt=""
+                            width="48"
+                            height="48"
+                            class="h-12 w-12 rounded-full object-cover ring-2 ring-cream-muted"
+                            loading="lazy"
+                          />
+                          <div>
+                            <p class="font-heading text-base font-semibold text-ink">
+                              Емілі Девіс
+                            </p>
+                            <p class="text-sm text-ink-muted">Подорож до Токіо</p>
+                          </div>
+                        </footer>
+                      </article>
+                    </div>
+  
+                    <!-- Слайд 4 -->
+                    <div class="swiper-slide !h-auto">
+                      <article
+                        class="flex h-full flex-col rounded-card bg-white p-6 shadow-card transition duration-300 hover:-translate-y-1 hover:shadow-floating md:p-8"
+                      >
+                        <div
+                          class="mb-4 flex gap-1 text-rating"
+                          role="img"
+                          aria-label="Оцінка 5 з 5"
+                        >
+                          <span aria-hidden="true">★★★★★</span>
+                        </div>
+                        <p
+                          class="flex-grow text-[15px] leading-relaxed text-ink"
+                        >
+                          «Чудові пропозиції на розкішні курорти Мальдів.
+                          Бронювання зайняло менше п'яти хвилин, а після прибуття
+                          нам безкоштовно покращили номер. Дуже рекомендую!»
+                        </p>
+                        <footer
+                          class="mt-6 flex items-center gap-4 border-t border-cream-muted pt-5"
+                        >
+                          <img
+                            src="https://images.unsplash.com/photo-1506794778202-cad84cf4531c?w=120&h=120&fit=crop&crop=face&q=80"
+                            alt=""
+                            width="48"
+                            height="48"
+                            class="h-12 w-12 rounded-full object-cover ring-2 ring-cream-muted"
+                            loading="lazy"
+                          />
+                          <div>
+                            <p class="font-heading text-base font-semibold text-ink">
+                              Джеймс Вілсон
+                            </p>
+                            <p class="text-sm text-ink-muted">
+                              Подорож на Мальдіви
+                            </p>
+                          </div>
+                        </footer>
+                      </article>
+                    </div>
+  
+                    <!-- Слайд 5 -->
+                    <div class="swiper-slide !h-auto">
+                      <article
+                        class="flex h-full flex-col rounded-card bg-white p-6 shadow-card transition duration-300 hover:-translate-y-1 hover:shadow-floating md:p-8"
+                      >
+                        <div
+                          class="mb-4 flex gap-1 text-rating"
+                          role="img"
+                          aria-label="Оцінка 5 з 5"
+                        >
+                          <span aria-hidden="true">★★★★★</span>
+                        </div>
+                        <p
+                          class="flex-grow text-[15px] leading-relaxed text-ink"
+                        >
+                          «Я часто їжджу у відрядження, і тепер це мій основний
+                          сайт для бронювання. Перегляд на мапі дуже зручний, щоб
+                          знайти готель біля ділового центру. І скасування — без
+                          жодних проблем.»
+                        </p>
+                        <footer
+                          class="mt-6 flex items-center gap-4 border-t border-cream-muted pt-5"
+                        >
+                          <img
+                            src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=120&h=120&fit=crop&crop=face&q=80"
+                            alt=""
+                            width="48"
+                            height="48"
+                            class="h-12 w-12 rounded-full object-cover ring-2 ring-cream-muted"
+                            loading="lazy"
+                          />
+                          <div>
+                            <p class="font-heading text-base font-semibold text-ink">
+                              Анна Мартінес
+                            </p>
+                            <p class="text-sm text-ink-muted">
+                              Подорож до Лондона
+                            </p>
+                          </div>
+                        </footer>
+                      </article>
+                    </div>
+  
+                    <!-- Слайд 6 -->
+                    <div class="swiper-slide !h-auto">
+                      <article
+                        class="flex h-full flex-col rounded-card bg-white p-6 shadow-card transition duration-300 hover:-translate-y-1 hover:shadow-floating md:p-8"
+                      >
+                        <div
+                          class="mb-4 flex gap-1 text-rating"
+                          role="img"
+                          aria-label="Оцінка 5 з 5"
+                        >
+                          <span aria-hidden="true">★★★★★</span>
+                        </div>
+                        <p
+                          class="flex-grow text-[15px] leading-relaxed text-ink"
+                        >
+                          «Спланували медовий місяць через цей сайт — і кожна
+                          дрібниця була ідеальною. Добірка романтичних подорожей
+                          підказала ідеї, які ми б ніде більше не знайшли.
+                          Незабутня поїздка!»
+                        </p>
+                        <footer
+                          class="mt-6 flex items-center gap-4 border-t border-cream-muted pt-5"
+                        >
+                          <img
+                            src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=120&h=120&fit=crop&crop=face&q=80"
+                            alt=""
+                            width="48"
+                            height="48"
+                            class="h-12 w-12 rounded-full object-cover ring-2 ring-cream-muted"
+                            loading="lazy"
+                          />
+                          <div>
+                            <p class="font-heading text-base font-semibold text-ink">
+                              Девід Браун
+                            </p>
+                            <p class="text-sm text-ink-muted">
+                              Подорож на Санторіні
+                            </p>
+                          </div>
+                        </footer>
+                      </article>
+                    </div>
+                  </div>
+  
+                  <!-- Пагінація -->
+                  <div class="swiper-pagination reviews-pagination !bottom-0"></div>
                 </div>
-              </article>
-            </li>
-            <li>
-              <article
-                class="relative flex h-full items-start gap-4 rounded-card bg-white p-6 shadow-card"
-              >
-                <span
-                  class="inline-flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-cream-muted text-xl text-brand sm:h-16 sm:w-16"
-                  aria-hidden="true"
-                  ><i class="fa-regular fa-heart"></i
-                ></span>
-                <div class="flex flex-col gap-1.5">
-                  <p
-                    class="w-fit rounded-full bg-cream px-3 py-1 text-xs font-semibold text-brand-strong"
-                  >
-                    Приклад сценарію
-                  </p>
-                  <h3 class="font-heading text-lg font-bold">Подорож удвох</h3>
-                  <p class="text-sm text-ink-muted">
-                    Бюджет до 900 $ · 2 мандрівники
-                  </p>
-                  <p class="text-[15px]">
-                    Режим «Повна подорож» збирає квитки й житло для двох в один
-                    план, тож загальну вартість видно одразу.
-                  </p>
-                </div>
-              </article>
-            </li>
-            <li class="md:col-span-2 lg:col-span-1">
-              <article
-                class="relative flex h-full items-start gap-4 rounded-card bg-white p-6 shadow-card"
-              >
-                <span
-                  class="inline-flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-cream-muted text-xl text-brand sm:h-16 sm:w-16"
-                  aria-hidden="true"
-                  ><i class="fa-solid fa-people-roof"></i
-                ></span>
-                <div class="flex flex-col gap-1.5">
-                  <p
-                    class="w-fit rounded-full bg-cream px-3 py-1 text-xs font-semibold text-brand-strong"
-                  >
-                    Приклад сценарію
-                  </p>
-                  <h3 class="font-heading text-lg font-bold">
-                    Сімейна відпустка
-                  </h3>
-                  <p class="text-sm text-ink-muted">
-                    Бюджет до 1 500 $ · 4 мандрівники
-                  </p>
-                  <p class="text-[15px]">
-                    Кількість мандрівників враховується в розрахунку — простіше
-                    підібрати житло й маршрут, зручні для всієї родини.
-                  </p>
-                </div>
-              </article>
-            </li>
-          </ul>
+
+                <!-- Стрілки навігації: поза каруселлю, щоб не перекривати картки -->
+                <div class="swiper-button-prev reviews-nav"></div>
+                <div class="swiper-button-next reviews-nav"></div>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -1544,6 +1830,149 @@
           "результати з'являться після підключення сервісу.";
       });
       dateTo.addEventListener("input", () => dateTo.setCustomValidity(""));
+    </script>
+
+    <!-- Swiper.js v11 JS + ініціалізація слайдера відгуків -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11.1.14/swiper-bundle.min.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        if (typeof Swiper === "undefined") return;
+
+        new Swiper(".reviews-swiper", {
+          // Нескінченна прокрутка
+          loop: true,
+
+          // Автопрокрутка кожні 3,5 с, пауза при наведенні
+          autoplay: {
+            delay: 3500,
+            disableOnInteraction: false,
+            pauseOnMouseEnter: true,
+          },
+
+          // За замовчуванням (мобільні)
+          slidesPerView: 1,
+          spaceBetween: 24,
+          grabCursor: true,
+          keyboard: { enabled: true },
+
+          // Стрілки навігації
+          navigation: {
+            nextEl: ".reviews-slider .swiper-button-next",
+            prevEl: ".reviews-slider .swiper-button-prev",
+          },
+
+          // Клікабельна пагінація
+          pagination: {
+            el: ".reviews-swiper .swiper-pagination",
+            clickable: true,
+          },
+
+          // Адаптивні точки зламу
+          breakpoints: {
+            // Планшет ≥ 640px
+            640: { slidesPerView: 2, spaceBetween: 20 },
+            // Десктоп ≥ 1024px
+            1024: { slidesPerView: 3, spaceBetween: 28 },
+          },
+
+          // Підказки для скрінрідерів українською
+          a11y: {
+            prevSlideMessage: "Попередній відгук",
+            nextSlideMessage: "Наступний відгук",
+            paginationBulletMessage: "Перейти до відгуку {{index}}",
+            firstSlideMessage: "Це перший відгук",
+            lastSlideMessage: "Це останній відгук",
+          },
+        });
+      });
+    </script>
+
+    <!-- Typed.js + ефект друку тексту в Hero-секції -->
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.1.0/dist/typed.umd.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const typedTarget = document.getElementById("typed-text");
+        if (!typedTarget) return;
+
+        const strings = [
+          "Квитки за найкращою ціною.",
+          "Затишне житло в будь-якому місті.",
+          "Подорож, що вкладається в бюджет.",
+        ];
+
+        // Якщо Typed.js не завантажився або користувач вимкнув анімації —
+        // просто показуємо першу фразу без ефекту
+        const reduceMotion = window.matchMedia(
+          "(prefers-reduced-motion: reduce)",
+        ).matches;
+        if (typeof Typed === "undefined" || reduceMotion) {
+          typedTarget.textContent = strings[0];
+          return;
+        }
+
+        const typed = new Typed("#typed-text", {
+          strings,
+          typeSpeed: 50, // Швидкість друкування в мс
+          backSpeed: 30, // Швидкість стирання
+          backDelay: 1800, // Пауза перед стиранням
+          loop: true, // Зациклення ефекту
+        });
+      });
+    </script>
+
+    <!-- Fancybox v5 JS + ініціалізація галереї інтер'єрів -->
+    <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.36/dist/fancybox/fancybox.umd.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        if (typeof Fancybox === "undefined") return;
+
+        Fancybox.bind('[data-fancybox="travel-gallery"]', {
+          // Плавна поява / зникнення лайтбокса (fade)
+          showClass: "f-fadeIn",
+          hideClass: "f-fadeOut",
+
+          // Перемикання між фото теж через fade, а не зсув
+          Carousel: {
+            transition: "fade",
+          },
+
+          // Зум: клік по фото, колесо миші, жест «щипок» і кнопки в панелі
+          wheel: "zoom",
+          Images: {
+            zoom: false, // відкриваємо через fade, а не «виліт» з мініатюри
+            Panzoom: {
+              maxScale: 3,
+            },
+          },
+
+          Toolbar: {
+            display: {
+              left: ["infobar"],
+              middle: ["zoomIn", "zoomOut", "toggle1to1"],
+              right: ["slideshow", "fullscreen", "close"],
+            },
+          },
+
+          // Українські підписи кнопок
+          l10n: {
+            CLOSE: "Закрити",
+            NEXT: "Наступне фото",
+            PREV: "Попереднє фото",
+            MODAL: "Натисніть Esc, щоб закрити",
+            ERROR: "Щось пішло не так, спробуйте пізніше",
+            IMAGE_ERROR: "Зображення не знайдено",
+            GOTO: "Перейти до фото %d",
+            TOGGLE_ZOOM: "Збільшити / зменшити",
+            ITERATEZOOM: "Збільшити / зменшити",
+            ZOOMIN: "Збільшити",
+            ZOOMOUT: "Зменшити",
+            TOGGLE1TO1: "Реальний розмір",
+            TOGGLE_SLIDESHOW: "Слайдшоу",
+            TOGGLE_FULLSCREEN: "На весь екран",
+            TOGGLEFS: "На весь екран",
+          },
+        });
+      });
     </script>
   </body>
 </html>

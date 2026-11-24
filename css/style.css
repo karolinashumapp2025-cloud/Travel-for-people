@@ -725,6 +725,185 @@ button {
   color: var(--color-primary);
 }
 
+/* --- Слайдер відгуків (Swiper) у кольорах дизайн-системи --- */
+.reviews-swiper {
+  --swiper-theme-color: var(--color-primary);
+  --swiper-pagination-color: var(--color-primary);
+  --swiper-pagination-bullet-inactive-color: var(--color-primary);
+  --swiper-pagination-bullet-inactive-opacity: 0.3;
+  --swiper-pagination-bullet-size: 10px;
+  --swiper-pagination-bullet-horizontal-gap: 5px;
+}
+
+.reviews-pagination .swiper-pagination-bullet {
+  transition:
+    width 0.3s ease,
+    opacity 0.3s ease;
+}
+
+/* Активна крапка — «пігулка» */
+.reviews-pagination .swiper-pagination-bullet-active {
+  width: 28px;
+  border-radius: 999px;
+}
+
+.reviews-nav {
+  --swiper-navigation-size: 16px;
+  /* по центру карток (без нижнього відступу під пагінацію) */
+  top: calc(50% - 28px);
+  width: 48px;
+  height: 48px;
+  margin-top: -24px;
+  border-radius: var(--radius-round);
+  background: var(--color-surface);
+  color: var(--color-primary);
+  box-shadow: 0 10px 30px rgba(40, 48, 28, 0.12);
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease;
+}
+
+.reviews-nav::after {
+  font-weight: var(--font-weight-bold);
+}
+
+.reviews-nav:hover {
+  background: var(--color-primary);
+  color: var(--color-text-inverse);
+}
+
+.reviews-nav.swiper-button-prev {
+  left: 0;
+}
+
+.reviews-nav.swiper-button-next {
+  right: 0;
+}
+
+/* До 1024px гортаємо свайпом і крапками — стрілки ховаємо */
+@media (max-width: 1023px) {
+  .reviews-nav {
+    display: none;
+  }
+}
+
+/* --- Typed.js у Hero: курсор у кольорі бренду --- */
+.hero-typed .typed-cursor {
+  color: var(--color-primary);
+  font-weight: var(--font-weight-regular);
+}
+
+/* --- Галерея інтер'єрів (CSS Grid) --- */
+.travel-gallery {
+  display: grid;
+  grid-template-columns: 1fr; /* mobile: одна колонка */
+  gap: var(--spacing-lg);
+}
+
+.gallery-item {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  aspect-ratio: 4 / 3;
+  border-radius: var(--radius-md);
+  box-shadow: 0 10px 30px rgba(40, 48, 28, 0.07);
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.gallery-item:hover img,
+.gallery-item:focus-visible img {
+  transform: scale(1.06);
+}
+
+/* Підпис-плашка поверх фото */
+.gallery-caption {
+  position: absolute;
+  inset: auto 0 0 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spacing-sm);
+  padding: 40px 20px 16px;
+  background: linear-gradient(to top, var(--color-overlay), transparent);
+  color: var(--color-text-inverse);
+}
+
+.gallery-caption i {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-round);
+  background: var(--color-surface);
+  color: var(--color-primary);
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease;
+}
+
+.gallery-item:hover .gallery-caption i,
+.gallery-item:focus-visible .gallery-caption i {
+  background: var(--color-primary);
+  color: var(--color-text-inverse);
+}
+
+/* sm: 2 колонки, головне фото — на всю ширину */
+@media (min-width: 640px) {
+  .travel-gallery {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .gallery-item--featured {
+    grid-column: 1 / -1;
+    aspect-ratio: 16 / 9;
+  }
+}
+
+/* lg: 3 колонки, головне фото 2×2, два інші — стовпчиком праворуч */
+@media (min-width: 1024px) {
+  .travel-gallery {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+  }
+  .gallery-item--featured {
+    grid-column: 1 / 3;
+    grid-row: 1 / 3;
+    aspect-ratio: auto;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .gallery-item img {
+    transition: none;
+  }
+  .gallery-item:hover img,
+  .gallery-item:focus-visible img {
+    transform: none;
+  }
+}
+
+/* Fancybox у кольорах проєкту + розмитий фон */
+.fancybox__container {
+  --fancybox-bg: rgba(40, 48, 28, 0.82);
+  --fancybox-accent-color: var(--color-primary);
+}
+
+.fancybox__backdrop {
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.fancybox__caption {
+  font-family: var(--font-heading);
+  font-size: var(--font-size-md);
+}
+
 /* --- CTA --- */
 .cta {
   padding-bottom: 60px;
