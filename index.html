@@ -296,15 +296,23 @@
             >
               Подорожуй більше. Плануй простіше.
             </h1>
-            <!-- Typed.js: текст «друкується» в #typed-text.
-                 Скрінрідерам — статичний текст, анімований рядок прихований від них -->
+            <!-- Typed.js: фрази «друкуються» в #typed-text.
+                 .hero-typed__ghost — невидима найдовша фраза, яка заздалегідь
+                 резервує ширину й висоту рядка, тому анімація не зсуває контент.
+                 Скрінрідерам — статичний перелік, анімований рядок прихований від них -->
             <p
-              class="hero-typed mt-3 min-h-[3.5rem] font-heading text-xl font-semibold text-ink sm:min-h-[2.25rem] sm:text-2xl"
+              class="hero-typed mt-3 font-heading text-xl font-semibold text-ink sm:text-2xl"
             >
               <span class="sr-only"
-                >Квитки, житло та маршрути — в межах твого бюджету.</span
+                >Нові країни, найкращі курорти, незабутні пригоди та подорожі
+                своєї мрії.</span
               >
-              <span aria-hidden="true"><span id="typed-text"></span></span>
+              <span class="hero-typed__box" aria-hidden="true">
+                <span class="hero-typed__ghost">Подорожі своєї мрії|</span>
+                <span class="hero-typed__live"
+                  ><span id="typed-text"></span
+                ></span>
+              </span>
             </p>
             <p class="mt-4 max-w-lg text-base text-ink-muted md:text-lg">
               Знайди ідеальну подорож відповідно до свого бюджету та вподобань.
@@ -1895,9 +1903,10 @@
         if (!typedTarget) return;
 
         const strings = [
-          "Квитки за найкращою ціною.",
-          "Затишне житло в будь-якому місті.",
-          "Подорож, що вкладається в бюджет.",
+          "Нові країни",
+          "Найкращі курорти",
+          "Незабутні пригоди",
+          "Подорожі своєї мрії",
         ];
 
         // Якщо Typed.js не завантажився або користувач вимкнув анімації —
@@ -1910,12 +1919,14 @@
           return;
         }
 
-        const typed = new Typed("#typed-text", {
+        new Typed("#typed-text", {
           strings,
-          typeSpeed: 50, // Швидкість друкування в мс
-          backSpeed: 30, // Швидкість стирання
-          backDelay: 1800, // Пауза перед стиранням
-          loop: true, // Зациклення ефекту
+          typeSpeed: 70, // Швидкість друку, мс на символ
+          backSpeed: 40, // Швидкість стирання, мс на символ
+          backDelay: 1600, // Пауза перед стиранням готової фрази, мс
+          loop: true, // Нескінченний цикл друку/стирання
+          showCursor: true, // Показувати курсор
+          cursorChar: "|", // Символ курсора
         });
       });
     </script>

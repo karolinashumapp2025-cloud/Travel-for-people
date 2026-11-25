@@ -787,7 +787,32 @@ button {
   }
 }
 
-/* --- Typed.js у Hero: курсор у кольорі бренду --- */
+/* --- Typed.js у Hero --- */
+/* Невидима «тінь» і живий рядок лежать в одній клітинці grid:
+   розмір блоку задає найдовша фраза, тож друк/стирання
+   не змінює висоту рядка й не зсуває кнопки та форму нижче */
+.hero-typed__box {
+  display: inline-grid;
+  max-width: 100%;
+  vertical-align: top;
+}
+
+.hero-typed__ghost,
+.hero-typed__live {
+  grid-area: 1 / 1;
+}
+
+.hero-typed__ghost {
+  visibility: hidden;
+  pointer-events: none;
+  user-select: none;
+}
+
+.hero-typed__live {
+  color: var(--color-primary);
+}
+
+/* Курсор у кольорі бренду */
 .hero-typed .typed-cursor {
   color: var(--color-primary);
   font-weight: var(--font-weight-regular);
